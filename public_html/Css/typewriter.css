@@ -1,0 +1,26 @@
+body {
+  margin:0px;
+  height:100vh;
+  display:block;
+  align-items:center;
+  justify-content:center;
+  background:#ddd;
+}
+.title{
+  display: block;
+  white-space: nowrap;
+  letter-spacing: .05rem;
+  animation : typing 2.5s steps(60, end);
+  overflow: hidden;
+  font-family: monospace;
+  margin: 10px;
+  font-size: 64px;
+}
+@keyframes typing{
+  from {
+    width: 1%;
+  }
+  to{
+    width: 100%;
+  }
+}
