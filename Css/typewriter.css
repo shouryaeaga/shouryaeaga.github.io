@@ -15,6 +15,7 @@ body {
   font-family: monospace;
   margin: 10px;
   font-size: 64px;
+  color: black;
 }
 @keyframes typing{
   from {

@@ -10,8 +10,14 @@ body {
 h1 {
   margin: 10px;
   font-family: monospace;
+  color: black;
 }
 
 h2 {
   margin: 10px;
+  color: black;
+}
+
+p {
+  color: black;
 }
