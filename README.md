@@ -5,6 +5,7 @@ Hi! I'm Shourya Eaga and I'm a passionate developer interested in machine learni
 ## My Projects
 
 - **[TodoZen](https://github.com/shouryaeaga/TodoZen)**: A todo app complete with secure authentication.
+
 [//] - **[Titanic Survival Calculator](https://github.com/shouryaeaga/titanic-survivor-model)**: A todo app complete with secure authentication.
 
 
