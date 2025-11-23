@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Blog</title>
+<link>https://shouryaeaga.com/</link>
+<atom:link href="https://shouryaeaga.com/index.xml" rel="self" type="application/rss+xml"/>
+<description>A blog about Mathematics and Computer Science.</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Sat, 22 Nov 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Explanation of the features of the Mandelbrot set</title>
+  <dc:creator>Shourya Eaga</dc:creator>
+  <link>https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction-to-the-mandelbrot-set" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction to the Mandelbrot Set</h1>
+<p>Before thinking about what different parts of the <strong>Mandelbrot set</strong> may mean, what exactly <em>is</em> the Mandelbrot set? The most concise definition is that which Wikipedia gives:</p>
+<blockquote class="blockquote">
+<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <img src="https://latex.codecogs.com/png.latex?c"> for which the function <img src="https://latex.codecogs.com/png.latex?f_c(z)%20=%20z%5E2+%20c"> does not diverge to infinity when iterated starting at <img src="https://latex.codecogs.com/png.latex?z=0">” <span class="citation" data-cites="wikipedia_mandelbrot_set">(Wikipedia contributors, n.d.)</span></p>
+</blockquote>
+<p>But what does this exactly mean?</p>
+<p>This means that if you take a complex number <img src="https://latex.codecogs.com/png.latex?c"> of the form <img src="https://latex.codecogs.com/png.latex?a+bi"> and let <img src="https://latex.codecogs.com/png.latex?z_0=0">, and define <img src="https://latex.codecogs.com/png.latex?z_%7Bn+1%7D=z_%7Bn%7D%5E2+c"> and repeatedly iterate through this iterative formula, you have two possible options - it “blows up” to infinity, or it remains stable. Here is an example (where <img src="https://latex.codecogs.com/png.latex?c"> is a real number) when <img src="https://latex.codecogs.com/png.latex?c=-1"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_1&amp;=0%5E2-1&amp;&amp;=-1%20%5C%5C%0Az_2&amp;=-1%5E2-1%20&amp;&amp;=%200%5C%5C%0Az_3%20&amp;&amp;&amp;=-1%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Here you see that when <img src="https://latex.codecogs.com/png.latex?c=-1">, then the sequence bounces between -1 and 0. <strong>It is stable, and hence in the Mandelbrot set.</strong></p>
+<p>Let’s look at a second example, when <img src="https://latex.codecogs.com/png.latex?c=1"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_1%20&amp;=%200%5E2+1%20&amp;&amp;=%201%20%5C%5C%0Az_2%20&amp;=%201%5E2+1%20&amp;&amp;=%202%20%5C%5C%0Az_3%20&amp;=%202%5E2+1%20&amp;&amp;=%205%20%5C%5C%0Az_4%20&amp;=%205%5E2+1%20&amp;&amp;=%2026%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Therefore, we see that using <img src="https://latex.codecogs.com/png.latex?c=1"> quickly produces larger numbers till infinity, and can conclude that <img src="https://latex.codecogs.com/png.latex?c=1"> <strong>is outside the Mandelbrot set</strong></p>
+<p>Let’s take a look at a 3rd example where <img src="https://latex.codecogs.com/png.latex?c"> is a complex number such as <img src="https://latex.codecogs.com/png.latex?c=1+i"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_1%20&amp;=%200%5E2+1+i%20&amp;&amp;=1+i%20%5C%5C%0Az_2%20&amp;=(1+i)%5E2%20+1+i%20&amp;&amp;=1+3i%20%5C%5C%0Az_3%20&amp;=%20(1+3i)%5E2%20+%201+i&amp;&amp;=-7+7i%20%5C%5C%0Az_4%20&amp;=%20(-7+7i)%5E2%20+%201+i%20&amp;&amp;=%201-97i%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Looking at the magnitudes<sup>[1]</sup> of the complex numbers, we see that they diverge to infinity again, concluding that <img src="https://latex.codecogs.com/png.latex?c=1+i"> <strong>is again outside the Mandelbrot set.</strong></p>
+<p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see Figure&nbsp;1</p>
+<div id="cell-fig-mandelbrot-basic" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> complex_matrix(xmin, xmax, ymin, ymax, pixel_per_unit_width, pixels_per_unit_height):</span>
+<span id="cb1-5">    re <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(xmin, xmax, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>((xmax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>xmin)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pixel_per_unit_width))</span>
+<span id="cb1-6">    im <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(ymin, ymax, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>((ymax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>ymin)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pixels_per_unit_height))</span>
+<span id="cb1-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> re[np.newaxis, :] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">1j</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> im[:, np.newaxis]</span>
+<span id="cb1-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> mandelbrot(C, max_iter):</span>
+<span id="cb1-9">  Z <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.zeros(C.shape, dtype<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">complex</span>)</span>
+<span id="cb1-10">  mask <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.ones(C.shape, dtype<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>)</span>
+<span id="cb1-11">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(max_iter):</span>
+<span id="cb1-12">      Z <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Z<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>Z <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> C</span>
+<span id="cb1-13">      mask <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;=</span> np.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">abs</span>(Z) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-14"></span>
+<span id="cb1-15">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> mask</span>
+<span id="cb1-16"></span>
+<span id="cb1-17">C <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> complex_matrix(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span>)</span>
+<span id="cb1-18">mandelbrot_set <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mandelbrot(C, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>)</span>
+<span id="cb1-19">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Real'</span>)</span>
+<span id="cb1-20">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Imaginary'</span>)</span>
+<span id="cb1-21">plt.imshow(mandelbrot_set, extent<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>], cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'binary'</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-basic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-basic-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Mandelbrot set on the complex plane
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Here we see the most famous fractal in mathematics - the Mandelbrot set, which we found by a simple mathematical rule. The axes on Figure&nbsp;1 denote the real and imaginary parts of the complex number <img src="https://latex.codecogs.com/png.latex?c=a+bi"> where <img src="https://latex.codecogs.com/png.latex?a"> is the real value on the x axis and <img src="https://latex.codecogs.com/png.latex?b"> is the imaginary value on the y axis .</p>
+<p><sup>[1]</sup> Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D"></p>
+</section>
+<section id="the-bulbs" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The Bulbs</h1>
+<section id="the-bifurcation-of-the-quadratic-map" class="level2" data-number="2.1">
+
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.1 The Bifurcation of the Quadratic Map</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-wikipedia_mandelbrot_set" class="csl-entry">
+Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
+</div>
+</div></section></div> ]]></description>
+  <guid>https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
+  <pubDate>Sat, 22 Nov 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

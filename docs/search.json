@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This blog was created to share beautiful and interesting ideas in the fields of Mathematics and Computer Science, the subjects that interest me the most."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shourya Eaga",
+    "section": "",
+    "text": "Explanation of the features of the Mandelbrot set\n\n\nAn in-depth look at the fascinating features of the Mandelbrot set, the most famous fractal in mathematics.\n\n\n\n\n\nNov 22, 2025\n\n\nShourya Eaga\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/explaining_the_mandelbrot_set/index.html",
+    "href": "posts/explaining_the_mandelbrot_set/index.html",
+    "title": "Explanation of the features of the Mandelbrot set",
+    "section": "",
+    "text": "Before thinking about what different parts of the Mandelbrot set may mean, what exactly is the Mandelbrot set? The most concise definition is that which Wikipedia gives:\n\n“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers \\(c\\) for which the function \\(f_c(z) = z^2+ c\\) does not diverge to infinity when iterated starting at \\(z=0\\)” (Wikipedia contributors, n.d.)\n\nBut what does this exactly mean?\nThis means that if you take a complex number \\(c\\) of the form \\(a+bi\\) and let \\(z_0=0\\), and define \\(z_{n+1}=z_{n}^2+c\\) and repeatedly iterate through this iterative formula, you have two possible options - it “blows up” to infinity, or it remains stable. Here is an example (where \\(c\\) is a real number) when \\(c=-1\\)\n\\[\n\\begin{aligned}\nz_1&=0^2-1&&=-1 \\\\\nz_2&=-1^2-1 &&= 0\\\\\nz_3 &&&=-1\n\\end{aligned}\n\\]\nHere you see that when \\(c=-1\\), then the sequence bounces between -1 and 0. It is stable, and hence in the Mandelbrot set.\nLet’s look at a second example, when \\(c=1\\)\n\\[\n\\begin{aligned}\nz_1 &= 0^2+1 &&= 1 \\\\\nz_2 &= 1^2+1 &&= 2 \\\\\nz_3 &= 2^2+1 &&= 5 \\\\\nz_4 &= 5^2+1 &&= 26 \\\\\n\\end{aligned}\n\\]\nTherefore, we see that using \\(c=1\\) quickly produces larger numbers till infinity, and can conclude that \\(c=1\\) is outside the Mandelbrot set\nLet’s take a look at a 3rd example where \\(c\\) is a complex number such as \\(c=1+i\\)\n\\[\n\\begin{aligned}\nz_1 &= 0^2+1+i &&=1+i \\\\\nz_2 &=(1+i)^2 +1+i &&=1+3i \\\\\nz_3 &= (1+3i)^2 + 1+i&&=-7+7i \\\\\nz_4 &= (-7+7i)^2 + 1+i &&= 1-97i \\\\\n\\end{aligned}\n\\]\nLooking at the magnitudes[1] of the complex numbers, we see that they diverge to infinity again, concluding that \\(c=1+i\\) is again outside the Mandelbrot set.\nFor what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see Figure 1\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef complex_matrix(xmin, xmax, ymin, ymax, pixel_per_unit_width, pixels_per_unit_height):\n    re = np.linspace(xmin, xmax, int((xmax-xmin)*pixel_per_unit_width))\n    im = np.linspace(ymin, ymax, int((ymax-ymin)*pixels_per_unit_height))\n    return re[np.newaxis, :] + 1j * im[:, np.newaxis]\ndef mandelbrot(C, max_iter):\n  Z = np.zeros(C.shape, dtype=complex)\n  mask = np.ones(C.shape, dtype=bool)\n  for i in range(max_iter):\n      Z = Z*Z + C\n      mask &= np.abs(Z) &lt;= 2\n\n  return mask\n\nC = complex_matrix(-2, 1, -1.5, 1.5, 300, 300)\nmandelbrot_set = mandelbrot(C, 50)\nplt.xlabel('Real')\nplt.ylabel('Imaginary')\nplt.imshow(mandelbrot_set, extent=[-2,1,-1.5,1.5], cmap='binary')\n\n\n\n\n\n\n\n\nFigure 1: Mandelbrot set on the complex plane\n\n\n\n\n\nHere we see the most famous fractal in mathematics - the Mandelbrot set, which we found by a simple mathematical rule. The axes on Figure 1 denote the real and imaginary parts of the complex number \\(c=a+bi\\) where \\(a\\) is the real value on the x axis and \\(b\\) is the imaginary value on the y axis .\n[1] Magnitude of a complex number \\(z=a+bi\\) is defined as \\(\\sqrt{a^2+b^2}\\)"
+  }
+]

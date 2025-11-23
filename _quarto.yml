@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  description: "A blog about Mathematics and Computer Science."
+  site-url: https://shouryaeaga.com # you must change this appropriately for RSS feeds to work properly
+  title: "Blog"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/shouryaeaga
+      - icon: rss
+        href: /index.xml
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+
+

@@ -1,0 +1,7 @@
+.venv/
+.quarto/
+_freeze/
+_site/
+
+/.quarto/
+**/*.quarto_ipynb
