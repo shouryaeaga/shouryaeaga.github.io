@@ -1,16 +1,15 @@
 ---
 title: "About"
-image: profile.jpg
 about:
   template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/shourya-eaga/
     - icon: github
       text: Github
       href: https://github.com/shouryaeaga
 
 ---
 
-This blog was created to share beautiful and interesting ideas in the fields of Mathematics and Computer Science, the subjects that interest me the most.
+Hi, I'm Shourya Eaga, a Year 12 student passionate about Computer Science and Mathematics. This blog was created to share beautiful and interesting ideas in the fields of Mathematics and Computer Science, the subjects that interest me the most. It serves as a playground for learning new topics and eventually share them by putting my own spin on them through interactive segments which hope to explain topics clearer and in a more interesting way. 

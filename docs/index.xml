@@ -37,8 +37,11 @@
 <p>Let’s take a look at a 3rd example where <img src="https://latex.codecogs.com/png.latex?c"> is a complex number such as <img src="https://latex.codecogs.com/png.latex?c=1+i"></p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_1%20&amp;=%200%5E2+1+i%20&amp;&amp;=1+i%20%5C%5C%0Az_2%20&amp;=(1+i)%5E2%20+1+i%20&amp;&amp;=1+3i%20%5C%5C%0Az_3%20&amp;=%20(1+3i)%5E2%20+%201+i&amp;&amp;=-7+7i%20%5C%5C%0Az_4%20&amp;=%20(-7+7i)%5E2%20+%201+i%20&amp;&amp;=%201-97i%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
 <p>Looking at the magnitudes<sup>[1]</sup> of the complex numbers, we see that they diverge to infinity again, concluding that <img src="https://latex.codecogs.com/png.latex?c=1+i"> <strong>is again outside the Mandelbrot set.</strong></p>
+<blockquote class="blockquote">
+<p><sup>[1]</sup> Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D"></p>
+</blockquote>
 <p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see Figure&nbsp;1</p>
-<div id="cell-fig-mandelbrot-basic" class="cell">
+<div id="cell-fig-mandelbrot-basic" class="cell" data-execution_count="54">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -197,11 +200,257 @@ Figure&nbsp;1: Mandelbrot set on the complex plane
 </div>
 </div>
 <p>Here we see the most famous fractal in mathematics - the Mandelbrot set, which we found by a simple mathematical rule. The axes on Figure&nbsp;1 denote the real and imaginary parts of the complex number <img src="https://latex.codecogs.com/png.latex?c=a+bi"> where <img src="https://latex.codecogs.com/png.latex?a"> is the real value on the x axis and <img src="https://latex.codecogs.com/png.latex?b"> is the imaginary value on the y axis .</p>
-<p><sup>[1]</sup> Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D"></p>
 </section>
 <section id="the-bulbs" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> The Bulbs</h1>
 <section id="the-bifurcation-of-the-quadratic-map" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-bifurcation-of-the-quadratic-map"><span class="header-section-number">2.1</span> The Bifurcation of the Quadratic Map</h2>
+<p>The Bifurcation diagram of the Quadratic Map and the Mandelbrot set are linked and correspond to each other and the Quadratic Map is defined as: <img src="https://latex.codecogs.com/png.latex?x_%7Bn+1%7D=x_n%5E2+c"></p>
+<p><strong>But what is a bifurcation diagram of the Quadratic Map?</strong></p>
+<p>It shows how the long term behaviour of a system changes as a parameter is adjusted in the quadratic map.</p>
+<p>Let’s take a value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.2"> and look at its long term behaviour.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2+0.2%20&amp;&amp;=0.2%20%5C%5C%0Ax_2&amp;=0.2%5E2+0.2%20&amp;&amp;=0.24%20%5C%5C%0Ax_3&amp;=0.24%5E2+0.2%20&amp;&amp;=0.2576%20%5C%5C%0Ax_4&amp;=0.2576%5E2+0.2%20&amp;&amp;=0.2664%20%5C%5C%0Ax_5&amp;=0.2664%5E2+0.2%20&amp;&amp;=0.2710%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Here, we see the values converging to a single point at approximately 0.2764 which is called a fixed point. Taking a different value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.5"> we see a different behaviour: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2+0.5%20&amp;&amp;=0.5%20%5C%5C%0Ax_2&amp;=0.5%5E2+0.5%20&amp;&amp;=0.75%20%5C%5C%0Ax_3&amp;=0.75%5E2+0.5%20&amp;&amp;=1.0625%20%5C%5C%0Ax_4&amp;=1.0625%5E2+0.5%20&amp;&amp;=1.6289%20%5C%5C%0Ax_5&amp;=1.6289%5E2+0.5%20&amp;&amp;=3.1555%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Here, we see the values diverging to infinity, indicating that for <img src="https://latex.codecogs.com/png.latex?c=0.5">, the system does not settle into a fixed point.</p>
+<p>We can also do this for negative numbers like <img src="https://latex.codecogs.com/png.latex?c=-1">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2-1%20&amp;&amp;=-1%20%5C%5C%0Ax_2&amp;=-1%5E2-1%20&amp;&amp;=0%20%5C%5C%0Ax_3&amp;=0%5E2-1%20&amp;&amp;=-1%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>We can clearly see that the values cycle between -1 and 0, showcasing the behaviour of a period-2 cycle.</p>
+</section>
+<section id="bifurcation-diagram" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</h2>
+<p>The values of <img src="https://latex.codecogs.com/png.latex?c"> that do not escape to infinity are exactly between -2 and 0.25. Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in Figure&nbsp;2.</p>
+<div id="cell-fig-bifurcation-diagram" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">P <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">600</span>)</span>
+<span id="cb2-2">X <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb2-3">Y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> u <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> P:</span>
+<span id="cb2-6">    point <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> u</span>
+<span id="cb2-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">600</span>):</span>
+<span id="cb2-8">        point <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> point<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> u</span>
+<span id="cb2-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">abs</span>(point) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>:</span>
+<span id="cb2-10">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">break</span></span>
+<span id="cb2-11">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb2-12">    </span>
+<span id="cb2-13">        points <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb2-14">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>):</span>
+<span id="cb2-15">            point <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> point<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> u</span>
+<span id="cb2-16">            new_point <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(point, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb2-17">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> new_point <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> points:</span>
+<span id="cb2-18">                points.append(new_point)</span>
+<span id="cb2-19">                </span>
+<span id="cb2-20">        X.append([u] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(points))</span>
+<span id="cb2-21">        Y.append(points)</span>
+<span id="cb2-22">X<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [item <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> sublist <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> X <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> item <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sublist]</span>
+<span id="cb2-23">Y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [item <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> sublist <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> Y <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> item <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sublist]</span>
+<span id="cb2-24">plt.scatter(X, Y, s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'red'</span>)</span>
+<span id="cb2-25">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-bifurcation-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-bifurcation-diagram-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Bifurcation diagram of the quadratic map
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The y values represent the long term values of <img src="https://latex.codecogs.com/png.latex?x_n"> for each corresponding <img src="https://latex.codecogs.com/png.latex?c"> value on the x axis. For example, at <img src="https://latex.codecogs.com/png.latex?c=-1">, we see two points at y=-1 and y=0, representing the period-2 cycle we observed earlier. Similarly, at <img src="https://latex.codecogs.com/png.latex?c=0.2">, we see a single point around y=0.2764, representing the fixed point we calculated.</p>
+</section>
+<section id="comparison-with-the-mandelbrot-set" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="comparison-with-the-mandelbrot-set"><span class="header-section-number">2.3</span> Comparison with the Mandelbrot set</h2>
+<p>Now, if we overlay the bifurcation diagram on top of the Mandelbrot set as shown in Figure&nbsp;3, we can see that the bulbs of the Mandelbrot set correspond to the stable regions in the bifurcation diagram. The largest bulb at the center corresponds to the fixed point region, while the smaller bulbs going left correspond to period-2, period-4 cycles, and so on.</p>
+<div id="cell-fig-mandelbrot-bifurcation-overlay" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">plt.imshow(mandelbrot_set, extent<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span>], cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'binary'</span>)</span>
+<span id="cb3-2">plt.scatter(X, Y, s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'red'</span>)</span>
+<span id="cb3-3">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-bifurcation-overlay" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-bifurcation-overlay-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Mandelbrot set with bifurcation diagram overlay
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-do-they-correspond" class="level2" data-number="2.4">
 
 
 
@@ -209,7 +458,7 @@ Figure&nbsp;1: Mandelbrot set on the complex plane
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.1 The Bifurcation of the Quadratic Map</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.4 Why do they correspond?</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-wikipedia_mandelbrot_set" class="csl-entry">
 Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
 </div>

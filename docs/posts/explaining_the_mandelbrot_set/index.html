@@ -244,6 +244,9 @@ window.Quarto = {
   <li><a href="#the-bulbs" id="toc-the-bulbs" class="nav-link" data-scroll-target="#the-bulbs"><span class="header-section-number">2</span> The Bulbs</a>
   <ul class="collapse">
   <li><a href="#the-bifurcation-of-the-quadratic-map" id="toc-the-bifurcation-of-the-quadratic-map" class="nav-link" data-scroll-target="#the-bifurcation-of-the-quadratic-map"><span class="header-section-number">2.1</span> The Bifurcation of the Quadratic Map</a></li>
+  <li><a href="#bifurcation-diagram" id="toc-bifurcation-diagram" class="nav-link" data-scroll-target="#bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</a></li>
+  <li><a href="#comparison-with-the-mandelbrot-set" id="toc-comparison-with-the-mandelbrot-set" class="nav-link" data-scroll-target="#comparison-with-the-mandelbrot-set"><span class="header-section-number">2.3</span> Comparison with the Mandelbrot set</a></li>
+  <li><a href="#why-do-they-correspond" id="toc-why-do-they-correspond" class="nav-link" data-scroll-target="#why-do-they-correspond"><span class="header-section-number">2.4</span> Why do they correspond?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -291,8 +294,11 @@ z_4 &amp;= (-7+7i)^2 + 1+i &amp;&amp;= 1-97i \\
 \end{aligned}
 \]</span></p>
 <p>Looking at the magnitudes<sup>[1]</sup> of the complex numbers, we see that they diverge to infinity again, concluding that <span class="math inline">\(c=1+i\)</span> <strong>is again outside the Mandelbrot set.</strong></p>
+<blockquote class="blockquote">
+<p><sup>[1]</sup> Magnitude of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(\sqrt{a^2+b^2}\)</span></p>
+</blockquote>
 <p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see <a href="#fig-mandelbrot-basic" class="quarto-xref">Figure&nbsp;1</a></p>
-<div id="cell-fig-mandelbrot-basic" class="cell">
+<div id="cell-fig-mandelbrot-basic" class="cell" data-execution_count="54">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -331,11 +337,118 @@ Figure&nbsp;1: Mandelbrot set on the complex plane
 </div>
 </div>
 <p>Here we see the most famous fractal in mathematics - the Mandelbrot set, which we found by a simple mathematical rule. The axes on <a href="#fig-mandelbrot-basic" class="quarto-xref">Figure&nbsp;1</a> denote the real and imaginary parts of the complex number <span class="math inline">\(c=a+bi\)</span> where <span class="math inline">\(a\)</span> is the real value on the x axis and <span class="math inline">\(b\)</span> is the imaginary value on the y axis .</p>
-<p><sup>[1]</sup> Magnitude of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(\sqrt{a^2+b^2}\)</span></p>
 </section>
 <section id="the-bulbs" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> The Bulbs</h1>
 <section id="the-bifurcation-of-the-quadratic-map" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-bifurcation-of-the-quadratic-map"><span class="header-section-number">2.1</span> The Bifurcation of the Quadratic Map</h2>
+<p>The Bifurcation diagram of the Quadratic Map and the Mandelbrot set are linked and correspond to each other and the Quadratic Map is defined as: <span class="math display">\[x_{n+1}=x_n^2+c\]</span></p>
+<p><strong>But what is a bifurcation diagram of the Quadratic Map?</strong></p>
+<p>It shows how the long term behaviour of a system changes as a parameter is adjusted in the quadratic map.</p>
+<p>Let’s take a value for <span class="math inline">\(c\)</span> like <span class="math inline">\(c=0.2\)</span> and look at its long term behaviour.</p>
+<p><span class="math display">\[
+\begin{aligned}
+x_0&amp;=0 \\
+x_1&amp;=0^2+0.2 &amp;&amp;=0.2 \\
+x_2&amp;=0.2^2+0.2 &amp;&amp;=0.24 \\
+x_3&amp;=0.24^2+0.2 &amp;&amp;=0.2576 \\
+x_4&amp;=0.2576^2+0.2 &amp;&amp;=0.2664 \\
+x_5&amp;=0.2664^2+0.2 &amp;&amp;=0.2710 \\
+\end{aligned}
+\]</span></p>
+<p>Here, we see the values converging to a single point at approximately 0.2764 which is called a fixed point. Taking a different value for <span class="math inline">\(c\)</span> like <span class="math inline">\(c=0.5\)</span> we see a different behaviour: <span class="math display">\[
+\begin{aligned}
+x_0&amp;=0 \\
+x_1&amp;=0^2+0.5 &amp;&amp;=0.5 \\
+x_2&amp;=0.5^2+0.5 &amp;&amp;=0.75 \\
+x_3&amp;=0.75^2+0.5 &amp;&amp;=1.0625 \\
+x_4&amp;=1.0625^2+0.5 &amp;&amp;=1.6289 \\
+x_5&amp;=1.6289^2+0.5 &amp;&amp;=3.1555 \\
+\end{aligned}
+\]</span></p>
+<p>Here, we see the values diverging to infinity, indicating that for <span class="math inline">\(c=0.5\)</span>, the system does not settle into a fixed point.</p>
+<p>We can also do this for negative numbers like <span class="math inline">\(c=-1\)</span>: <span class="math display">\[
+\begin{aligned}
+x_0&amp;=0 \\
+x_1&amp;=0^2-1 &amp;&amp;=-1 \\
+x_2&amp;=-1^2-1 &amp;&amp;=0 \\
+x_3&amp;=0^2-1 &amp;&amp;=-1 \\
+\end{aligned}
+\]</span></p>
+<p>We can clearly see that the values cycle between -1 and 0, showcasing the behaviour of a period-2 cycle.</p>
+</section>
+<section id="bifurcation-diagram" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</h2>
+<p>The values of <span class="math inline">\(c\)</span> that do not escape to infinity are exactly between -2 and 0.25. Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in <a href="#fig-bifurcation-diagram" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<div id="cell-fig-bifurcation-diagram" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">600</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> []</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> u <span class="kw">in</span> P:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    point <span class="op">=</span> <span class="dv">0</span> <span class="op">+</span> u</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">600</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        point <span class="op">=</span> point<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> u</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">abs</span>(point) <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        points <span class="op">=</span> []</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            point <span class="op">=</span> point<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> u</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            new_point <span class="op">=</span> <span class="bu">round</span>(point, <span class="dv">3</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> new_point <span class="kw">not</span> <span class="kw">in</span> points:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                points.append(new_point)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        X.append([u] <span class="op">*</span> <span class="bu">len</span>(points))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        Y.append(points)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span> [item <span class="cf">for</span> sublist <span class="kw">in</span> X <span class="cf">for</span> item <span class="kw">in</span> sublist]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>Y<span class="op">=</span> [item <span class="cf">for</span> sublist <span class="kw">in</span> Y <span class="cf">for</span> item <span class="kw">in</span> sublist]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.scatter(X, Y, s<span class="op">=</span><span class="fl">0.1</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-bifurcation-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-bifurcation-diagram-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Bifurcation diagram of the quadratic map
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The y values represent the long term values of <span class="math inline">\(x_n\)</span> for each corresponding <span class="math inline">\(c\)</span> value on the x axis. For example, at <span class="math inline">\(c=-1\)</span>, we see two points at y=-1 and y=0, representing the period-2 cycle we observed earlier. Similarly, at <span class="math inline">\(c=0.2\)</span>, we see a single point around y=0.2764, representing the fixed point we calculated.</p>
+</section>
+<section id="comparison-with-the-mandelbrot-set" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="comparison-with-the-mandelbrot-set"><span class="header-section-number">2.3</span> Comparison with the Mandelbrot set</h2>
+<p>Now, if we overlay the bifurcation diagram on top of the Mandelbrot set as shown in <a href="#fig-mandelbrot-bifurcation-overlay" class="quarto-xref">Figure&nbsp;3</a>, we can see that the bulbs of the Mandelbrot set correspond to the stable regions in the bifurcation diagram. The largest bulb at the center corresponds to the fixed point region, while the smaller bulbs going left correspond to period-2, period-4 cycles, and so on.</p>
+<div id="cell-fig-mandelbrot-bifurcation-overlay" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(mandelbrot_set, extent<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>], cmap<span class="op">=</span><span class="st">'binary'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X, Y, s<span class="op">=</span><span class="fl">0.01</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-bifurcation-overlay" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-mandelbrot-bifurcation-overlay-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Mandelbrot set with bifurcation diagram overlay
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-do-they-correspond" class="level2" data-number="2.4">
 
 
 
@@ -343,7 +456,7 @@ Figure&nbsp;1: Mandelbrot set on the complex plane
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.1 The Bifurcation of the Quadratic Map</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.4 Why do they correspond?</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_mandelbrot_set" class="csl-entry" role="listitem">
 Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
 </div>
