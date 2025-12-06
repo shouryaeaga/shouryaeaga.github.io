@@ -126,6 +126,8 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -246,8 +248,10 @@ window.Quarto = {
   <li><a href="#the-bifurcation-of-the-quadratic-map" id="toc-the-bifurcation-of-the-quadratic-map" class="nav-link" data-scroll-target="#the-bifurcation-of-the-quadratic-map"><span class="header-section-number">2.1</span> The Bifurcation of the Quadratic Map</a></li>
   <li><a href="#bifurcation-diagram" id="toc-bifurcation-diagram" class="nav-link" data-scroll-target="#bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</a></li>
   <li><a href="#comparison-with-the-mandelbrot-set" id="toc-comparison-with-the-mandelbrot-set" class="nav-link" data-scroll-target="#comparison-with-the-mandelbrot-set"><span class="header-section-number">2.3</span> Comparison with the Mandelbrot set</a></li>
-  <li><a href="#why-do-they-correspond" id="toc-why-do-they-correspond" class="nav-link" data-scroll-target="#why-do-they-correspond"><span class="header-section-number">2.4</span> Why do they correspond?</a></li>
+  <li><a href="#how-do-they-correspond" id="toc-how-do-they-correspond" class="nav-link" data-scroll-target="#how-do-they-correspond"><span class="header-section-number">2.4</span> How do they correspond?</a></li>
+  <li><a href="#visualisation-of-the-period-cycles" id="toc-visualisation-of-the-period-cycles" class="nav-link" data-scroll-target="#visualisation-of-the-period-cycles"><span class="header-section-number">2.5</span> Visualisation of the period cycles</a></li>
   </ul></li>
+  <li><a href="#the-fibonnaci-sequence-and-the-mandelbrot-set" id="toc-the-fibonnaci-sequence-and-the-mandelbrot-set" class="nav-link" data-scroll-target="#the-fibonnaci-sequence-and-the-mandelbrot-set"><span class="header-section-number">3</span> The fibonnaci sequence and the Mandelbrot set</a></li>
   </ul>
 </nav>
     </div>
@@ -293,12 +297,9 @@ z_3 &amp;= (1+3i)^2 + 1+i&amp;&amp;=-7+7i \\
 z_4 &amp;= (-7+7i)^2 + 1+i &amp;&amp;= 1-97i \\
 \end{aligned}
 \]</span></p>
-<p>Looking at the magnitudes<sup>[1]</sup> of the complex numbers, we see that they diverge to infinity again, concluding that <span class="math inline">\(c=1+i\)</span> <strong>is again outside the Mandelbrot set.</strong></p>
-<blockquote class="blockquote">
-<p><sup>[1]</sup> Magnitude of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(\sqrt{a^2+b^2}\)</span></p>
-</blockquote>
+<p>Looking at the magnitudes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of the complex numbers, we see that they diverge to infinity again, concluding that <span class="math inline">\(c=1+i\)</span> <strong>is again outside the Mandelbrot set.</strong></p>
 <p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see <a href="#fig-mandelbrot-basic" class="quarto-xref">Figure&nbsp;1</a></p>
-<div id="cell-fig-mandelbrot-basic" class="cell" data-execution_count="54">
+<div id="cell-fig-mandelbrot-basic" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -380,7 +381,7 @@ x_3&amp;=0^2-1 &amp;&amp;=-1 \\
 <section id="bifurcation-diagram" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</h2>
 <p>The values of <span class="math inline">\(c\)</span> that do not escape to infinity are exactly between -2 and 0.25. Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in <a href="#fig-bifurcation-diagram" class="quarto-xref">Figure&nbsp;2</a>.</p>
-<div id="cell-fig-bifurcation-diagram" class="cell">
+<div id="cell-fig-bifurcation-diagram" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">600</span>)</span>
@@ -426,8 +427,8 @@ Figure&nbsp;2: Bifurcation diagram of the quadratic map
 </section>
 <section id="comparison-with-the-mandelbrot-set" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="comparison-with-the-mandelbrot-set"><span class="header-section-number">2.3</span> Comparison with the Mandelbrot set</h2>
-<p>Now, if we overlay the bifurcation diagram on top of the Mandelbrot set as shown in <a href="#fig-mandelbrot-bifurcation-overlay" class="quarto-xref">Figure&nbsp;3</a>, we can see that the bulbs of the Mandelbrot set correspond to the stable regions in the bifurcation diagram. The largest bulb at the center corresponds to the fixed point region, while the smaller bulbs going left correspond to period-2, period-4 cycles, and so on.</p>
-<div id="cell-fig-mandelbrot-bifurcation-overlay" class="cell">
+<p>Now, if we overlay the bifurcation diagram on top of the Mandelbrot set as shown in <a href="#fig-mandelbrot-bifurcation-overlay" class="quarto-xref">Figure&nbsp;3</a>, we can see that the bulbs of the Mandelbrot set correspond to the stable regions in the bifurcation diagram.</p>
+<div id="cell-fig-mandelbrot-bifurcation-overlay" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(mandelbrot_set, extent<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>], cmap<span class="op">=</span><span class="st">'binary'</span>)</span>
@@ -448,20 +449,517 @@ Figure&nbsp;3: Mandelbrot set with bifurcation diagram overlay
 </div>
 </div>
 </section>
-<section id="why-do-they-correspond" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="why-do-they-correspond"><span class="header-section-number">2.4</span> Why do they correspond?</h2>
-<p>The individual bulbs in the mandelbrot set correspond to regions of stability. They also correspond to parameters of <span class="math inline">\(c\)</span> where a specific period cycle is attracting. For example, the largest bulb at the centre of the set corresponds to fixed points.</p>
+<section id="how-do-they-correspond" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="how-do-they-correspond"><span class="header-section-number">2.4</span> How do they correspond?</h2>
+<p>The individual bulbs in the mandelbrot set correspond to regions of stability. They also correspond to parameters of <span class="math inline">\(c\)</span> where a specific period cycle is attracting. For example, the largest bulb at the centre of the set corresponds to fixed points, and the smaller bulbs to the left correspond to period-2, period-4 cycles, and so on. Also, you can see the Feigenbaum point at <span class="math inline">\(c \approx -1.401155\)</span> where the period-doubling bifurcations accumulate, and chaos begins. This is where the orbit becomes chaotic, and there are no stable cycles, except for some periodic windows like around <span class="math inline">\(c \approx -1.75\)</span>, where you can see a period-3 cycle emerging. These period windows reveal some smaller minibrots in the Mandelbrot set, and you can see that there are a lot of them as you zoom in closer to the boundary of the Mandelbrot set.</p>
+</section>
+<section id="visualisation-of-the-period-cycles" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="visualisation-of-the-period-cycles"><span class="header-section-number">2.5</span> Visualisation of the period cycles</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-startfrom="3" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2;"><span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mutable x_centre <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mutable y_centre <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>mutable centre_x_pixel <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mutable centre_y_pixel <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>viewof mandelbrotPlot <span class="op">=</span> {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xmin <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">,</span> xmax <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ymin <span class="op">=</span> <span class="op">-</span><span class="fl">1.5</span><span class="op">,</span> ymax <span class="op">=</span> <span class="fl">1.5</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pixelPerUnitWidth <span class="op">=</span> <span class="dv">250</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pixelPerUnitHeight <span class="op">=</span> <span class="dv">250</span><span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> maxIter <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> width <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((xmax <span class="op">-</span> xmin) <span class="op">*</span> pixelPerUnitWidth)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> height <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((ymax <span class="op">-</span> ymin) <span class="op">*</span> pixelPerUnitHeight)<span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> canvas <span class="op">=</span> DOM<span class="op">.</span><span class="fu">canvas</span>(width<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctx <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getContext</span>(<span class="st">"2d"</span>)<span class="op">;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> image <span class="op">=</span> ctx<span class="op">.</span><span class="fu">createImageData</span>(width<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  canvas<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> (<span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> rect <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getBoundingClientRect</span>()<span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">clientX</span> <span class="op">-</span> rect<span class="op">.</span><span class="at">left</span><span class="op">;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">clientY</span> <span class="op">-</span> rect<span class="op">.</span><span class="at">top</span><span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> cr <span class="op">=</span> xmin <span class="op">+</span> (x <span class="op">/</span> width) <span class="op">*</span> (xmax <span class="op">-</span> xmin)<span class="op">;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ci <span class="op">=</span> <span class="op">-</span>ymin <span class="op">-</span> (y <span class="op">/</span> height) <span class="op">*</span> (ymax <span class="op">-</span> ymin)<span class="op">;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    mutable x_centre <span class="op">=</span> cr<span class="op">;</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    mutable y_centre <span class="op">=</span> ci<span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    mutable centre_x_pixel <span class="op">=</span> x<span class="op">;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    mutable centre_y_pixel <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// compute mandelbrot</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> height<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ci <span class="op">=</span> ymin <span class="op">+</span> (y <span class="op">/</span> height) <span class="op">*</span> (ymax <span class="op">-</span> ymin)<span class="op">;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> width<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> cr <span class="op">=</span> xmin <span class="op">+</span> (x <span class="op">/</span> width) <span class="op">*</span> (xmax <span class="op">-</span> xmin)<span class="op">;</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> zr <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> zi <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> iter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>      <span class="cf">while</span> (zr<span class="op">*</span>zr <span class="op">+</span> zi<span class="op">*</span>zi <span class="op">&lt;=</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> iter <span class="op">&lt;</span> maxIter) {</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> zrNew <span class="op">=</span> zr<span class="op">*</span>zr <span class="op">-</span> zi<span class="op">*</span>zi <span class="op">+</span> cr<span class="op">;</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>        zi <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> zr <span class="op">*</span> zi <span class="op">+</span> ci<span class="op">;</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        zr <span class="op">=</span> zrNew<span class="op">;</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        iter<span class="op">++;</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> idx <span class="op">=</span> (y <span class="op">*</span> width <span class="op">+</span> x) <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> v <span class="op">=</span> iter <span class="op">===</span> maxIter <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="dv">255</span><span class="op">;</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">2</span>] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">3</span>] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="co">// convert complex number from x_centre, and y_centre to x and y coordinates</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> centre_pixel_y <span class="op">=</span> height <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(((y_centre <span class="op">-</span> ymin) <span class="op">/</span> (ymax <span class="op">-</span> ymin)) <span class="op">*</span> height)<span class="op">;</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> centre_pixel_x <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(((x_centre <span class="op">-</span> xmin) <span class="op">/</span> (xmax <span class="op">-</span> xmin)) <span class="op">*</span> width)<span class="op">;</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> height<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> width<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> dx <span class="op">=</span> x <span class="op">-</span> centre_pixel_x<span class="op">;</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> dy <span class="op">=</span> y <span class="op">-</span> centre_pixel_y<span class="op">;</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(dx<span class="op">*</span>dx <span class="op">+</span> dy<span class="op">*</span>dy) <span class="op">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> idx <span class="op">=</span> (y <span class="op">*</span> width <span class="op">+</span> x) <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span>      <span class="co">// Red</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>    <span class="co">// Green</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">2</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>    <span class="co">// Blue</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">3</span>] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span>  <span class="co">// Alpha</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  ctx<span class="op">.</span><span class="fu">putImageData</span>(image<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> canvas<span class="op">;</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="co">// Calculate period at the center point</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">iterate</span>(z<span class="op">,</span> c) {</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    <span class="dt">re</span><span class="op">:</span> z<span class="op">.</span><span class="at">re</span><span class="op">*</span>z<span class="op">.</span><span class="at">re</span> <span class="op">-</span> z<span class="op">.</span><span class="at">im</span><span class="op">*</span>z<span class="op">.</span><span class="at">im</span> <span class="op">+</span> c<span class="op">.</span><span class="at">re</span><span class="op">,</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    <span class="dt">im</span><span class="op">:</span> <span class="dv">2</span><span class="op">*</span>z<span class="op">.</span><span class="at">re</span><span class="op">*</span>z<span class="op">.</span><span class="at">im</span> <span class="op">+</span> c<span class="op">.</span><span class="at">im</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="co">// magnitude squared</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mag2</span>(z) {</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> z<span class="op">.</span><span class="at">re</span><span class="op">*</span>z<span class="op">.</span><span class="at">re</span> <span class="op">+</span> z<span class="op">.</span><span class="at">im</span><span class="op">*</span>z<span class="op">.</span><span class="at">im</span><span class="op">;</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="co">// round to 2dp</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">round2</span>(z) {</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    <span class="dt">re</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(z<span class="op">.</span><span class="at">re</span> <span class="op">*</span> <span class="dv">100</span>) <span class="op">/</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    <span class="dt">im</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(z<span class="op">.</span><span class="at">im</span> <span class="op">*</span> <span class="dv">100</span>) <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="co">// function to determine the orbit behaviour</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">orbitPeriod</span>(c<span class="op">,</span> warmup <span class="op">=</span> <span class="dv">500</span><span class="op">,</span> sampleCount <span class="op">=</span> <span class="dv">150</span><span class="op">,</span> escapeRadius <span class="op">=</span> <span class="dv">4</span>) {</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> z <span class="op">=</span> { <span class="dt">re</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">im</span><span class="op">:</span> <span class="dv">0</span> }<span class="op">;</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Warm-up phase ---</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> warmup<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> <span class="fu">iterate</span>(z<span class="op">,</span> c)<span class="op">;</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">mag2</span>(z) <span class="op">&gt;</span> escapeRadius) {</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"escapes"</span><span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="st">"Not in Mandelbrot set"</span> }<span class="op">;</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Sampling phase (bounded orbit) ---</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> values <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> sampleCount<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> <span class="fu">iterate</span>(z<span class="op">,</span> c)<span class="op">;</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">mag2</span>(z) <span class="op">&gt;</span> escapeRadius) {</span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"escapes"</span><span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="st">"Not in Mandelbrot set"</span> }<span class="op">;</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> r <span class="op">=</span> <span class="fu">round2</span>(z)<span class="op">;</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>    values<span class="op">.</span><span class="fu">push</span>(<span class="vs">`</span><span class="sc">${</span>r<span class="op">.</span><span class="at">re</span><span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>r<span class="op">.</span><span class="at">im</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span> <span class="co">// store as string so Set works nicely</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  <span class="co">// remove duplicates</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> unique <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>(values)]<span class="op">;</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Determine behaviour ---</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> period <span class="op">=</span> unique<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (period <span class="op">===</span> <span class="dv">1</span>) {</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"periodic"</span><span class="op">,</span> <span class="dt">period</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="st">"Fixed point (period 1)"</span> }<span class="op">;</span></span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (period <span class="op">===</span> <span class="dv">2</span>) {</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"periodic"</span><span class="op">,</span> <span class="dt">period</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="st">"Period-2 cycle"</span> }<span class="op">;</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (period <span class="op">&lt;</span> <span class="dv">32</span>) {</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"periodic"</span><span class="op">,</span> period<span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="vs">`Period-</span><span class="sc">${</span>period<span class="sc">}</span><span class="vs"> cycle`</span> }<span class="op">;</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Many unique values → chaotic / non-repeating</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> { <span class="dt">status</span><span class="op">:</span> <span class="st">"chaos"</span><span class="op">,</span> <span class="dt">message</span><span class="op">:</span> <span class="st">"Chaotic orbit"</span> }<span class="op">;</span></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>period <span class="op">=</span> <span class="fu">orbitPeriod</span>({ <span class="dt">re</span><span class="op">:</span> x_centre<span class="op">,</span> <span class="dt">im</span><span class="op">:</span> y_centre })<span class="op">;</span></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>period<span class="op">.</span><span class="at">status</span> <span class="op">+</span> <span class="st">" - "</span> <span class="op">+</span> period<span class="op">.</span><span class="at">message</span> <span class="op">+</span> <span class="vs">` (Period: </span><span class="sc">${</span>period<span class="op">.</span><span class="at">period</span> <span class="op">||</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-startfrom="155" data-source-offset="-4079"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 154;"><span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="st">"Position: "</span> <span class="op">+</span> x_centre <span class="op">+</span> <span class="st">" + "</span> <span class="op">+</span> y_centre <span class="op">+</span> <span class="st">"i"</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="fig-mandelbrot-orbit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-5" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-6" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(f)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-7" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(g)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-8" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(h)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-9" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(i)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-10" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(j)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-11" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(k)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-orbit-12" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-orbit-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-1-12" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-orbit-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(l)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-orbit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Explore the Mandelbrot set by clicking on the plot to see the orbit behaviour at that point.
+</figcaption>
+</figure>
+</div>
+</div>
+<p><a href="#fig-mandelbrot-orbit" class="quarto-xref">Figure&nbsp;4</a> is a visualisation of the orbits of the points in the Mandelbrot set, clicking on different points in the set updates the label underneath to tell you the period of that point, as well as the position of the point in the complex plane. It can also tell you if the point is in chaos, and does not settle into a periodic cycle or a fixed point. You might notice something about the components of the main bulb, and that they all correspond to points that settle into a periodic cycle.</p>
+<div id="fig-mandelbrot-periodicities" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-periodicities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Mandelbrot_Set_–_Periodicities_coloured.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-periodicities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: An image showcasing the periodicities of the mandelbrot set<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</figcaption>
+</figure>
+</div>
+<p>See <a href="#fig-mandelbrot-periodicities" class="quarto-xref">Figure&nbsp;5</a> for a coloured visualisation of the different periodicities in the Mandelbrot set.</p>
+</section>
+</section>
+<section id="the-fibonnaci-sequence-and-the-mandelbrot-set" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> The fibonnaci sequence and the Mandelbrot set</h1>
+<p>It may not seem likely, but the fibonacci sequence actually has a deep connection to the Mandelbrot set. The Fibonacci sequence is defined as follows: <span class="math display">\[
+\begin{aligned}
+F(0) = 0 \\
+F(1) = 1 \\
+F(n) = F(n-1) + F(n-2) \text{ for } n \geq 2
+\end{aligned}
+\]</span></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-startfrom="2" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1;"><span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>viewof zoomed <span class="op">=</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> xmin <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span><span class="op">,</span> xmax <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ymin <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> ymax <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pixelPerUnitWidth <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pixelPerUnitHeight <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> maxIter <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> width <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((xmax <span class="op">-</span> xmin) <span class="op">*</span> pixelPerUnitWidth)<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> height <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>((ymax <span class="op">-</span> ymin) <span class="op">*</span> pixelPerUnitHeight)<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> canvas <span class="op">=</span> DOM<span class="op">.</span><span class="fu">canvas</span>(width<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ctx <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getContext</span>(<span class="st">"2d"</span>)<span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> image <span class="op">=</span> ctx<span class="op">.</span><span class="fu">createImageData</span>(width<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  canvas<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> (<span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> rect <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getBoundingClientRect</span>()<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">clientX</span> <span class="op">-</span> rect<span class="op">.</span><span class="at">left</span><span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> y <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">clientY</span> <span class="op">-</span> rect<span class="op">.</span><span class="at">top</span><span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> cr <span class="op">=</span> xmin <span class="op">+</span> (x <span class="op">/</span> width) <span class="op">*</span> (xmax <span class="op">-</span> xmin)<span class="op">;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ci <span class="op">=</span> <span class="op">-</span>ymin <span class="op">-</span> (y <span class="op">/</span> height) <span class="op">*</span> (ymax <span class="op">-</span> ymin)<span class="op">;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    mutable x_centre <span class="op">=</span> cr<span class="op">;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    mutable y_centre <span class="op">=</span> ci<span class="op">;</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    mutable centre_x_pixel <span class="op">=</span> x<span class="op">;</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    mutable centre_y_pixel <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// compute mandelbrot</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> height<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ci <span class="op">=</span> ymin <span class="op">+</span> (y <span class="op">/</span> height) <span class="op">*</span> (ymax <span class="op">-</span> ymin)<span class="op">;</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> width<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> cr <span class="op">=</span> xmin <span class="op">+</span> (x <span class="op">/</span> width) <span class="op">*</span> (xmax <span class="op">-</span> xmin)<span class="op">;</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> zr <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> zi <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> iter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>      <span class="cf">while</span> (zr<span class="op">*</span>zr <span class="op">+</span> zi<span class="op">*</span>zi <span class="op">&lt;=</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> iter <span class="op">&lt;</span> maxIter) {</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> zrNew <span class="op">=</span> zr<span class="op">*</span>zr <span class="op">-</span> zi<span class="op">*</span>zi <span class="op">+</span> cr<span class="op">;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        zi <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> zr <span class="op">*</span> zi <span class="op">+</span> ci<span class="op">;</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        zr <span class="op">=</span> zrNew<span class="op">;</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        iter<span class="op">++;</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> idx <span class="op">=</span> (y <span class="op">*</span> width <span class="op">+</span> x) <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> v <span class="op">=</span> iter <span class="op">===</span> maxIter <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="dv">255</span><span class="op">;</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">2</span>] <span class="op">=</span> v<span class="op">;</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>      image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">3</span>] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> height<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> width<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> dx <span class="op">=</span> x <span class="op">-</span> centre_x_pixel<span class="op">;</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> dy <span class="op">=</span> y <span class="op">-</span> centre_y_pixel<span class="op">;</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(dx<span class="op">*</span>dx <span class="op">+</span> dy<span class="op">*</span>dy) <span class="op">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> idx <span class="op">=</span> (y <span class="op">*</span> width <span class="op">+</span> x) <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span>      <span class="co">// Red</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>    <span class="co">// Green</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">2</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>    <span class="co">// Blue</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>        image<span class="op">.</span><span class="at">data</span>[idx <span class="op">+</span> <span class="dv">3</span>] <span class="op">=</span> <span class="dv">255</span><span class="op">;</span>  <span class="co">// Alpha</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  ctx<span class="op">.</span><span class="fu">putImageData</span>(image<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> canvas<span class="op">;</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>period<span class="op">.</span><span class="at">status</span> <span class="op">+</span> <span class="st">" - "</span> <span class="op">+</span> period<span class="op">.</span><span class="at">message</span> <span class="op">+</span> <span class="vs">` (Period: </span><span class="sc">${</span>period<span class="op">.</span><span class="at">period</span> <span class="op">||</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="fig-mandelbrot-fibonnaci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-fibonnaci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-fibonnaci-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-fibonnaci-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-fibonnaci-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-mandelbrot-fibonnaci-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mandelbrot-fibonnaci-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-2-2" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mandelbrot-fibonnaci-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-fibonnaci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonnaci sequence.
+</figcaption>
+</figure>
+</div>
+</div>
 
 
 
 </section>
-</section>
+
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_mandelbrot_set" class="csl-entry" role="listitem">
 Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
 </div>
-</div></section></div></main> <!-- /main -->
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Magnitude of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(\sqrt{a^2+b^2}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Image By No machine-readable author provided. Hoehue~commonswiki assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims)., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=396285<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxubXV0YWJsZSB4X2NlbnRyZSA9IC0wLjU7XG5tdXRhYmxlIHlfY2VudHJlID0gMC4wO1xubXV0YWJsZSBjZW50cmVfeF9waXhlbCA9IDA7XG5tdXRhYmxlIGNlbnRyZV95X3BpeGVsID0gMDtcblxudmlld29mIG1hbmRlbGJyb3RQbG90ID0ge1xuICBjb25zdCB4bWluID0gLTIsIHhtYXggPSAxO1xuICBjb25zdCB5bWluID0gLTEuNSwgeW1heCA9IDEuNTtcbiAgY29uc3QgcGl4ZWxQZXJVbml0V2lkdGggPSAyNTA7XG4gIGNvbnN0IHBpeGVsUGVyVW5pdEhlaWdodCA9IDI1MDtcbiAgY29uc3QgbWF4SXRlciA9IDUwO1xuXG4gIGNvbnN0IHdpZHRoID0gTWF0aC5mbG9vcigoeG1heCAtIHhtaW4pICogcGl4ZWxQZXJVbml0V2lkdGgpO1xuICBjb25zdCBoZWlnaHQgPSBNYXRoLmZsb29yKCh5bWF4IC0geW1pbikgKiBwaXhlbFBlclVuaXRIZWlnaHQpO1xuXG4gIGNvbnN0IGNhbnZhcyA9IERPTS5jYW52YXMod2lkdGgsIGhlaWdodCk7XG4gIGNvbnN0IGN0eCA9IGNhbnZhcy5nZXRDb250ZXh0KFwiMmRcIik7XG4gIGNvbnN0IGltYWdlID0gY3R4LmNyZWF0ZUltYWdlRGF0YSh3aWR0aCwgaGVpZ2h0KTtcblxuICBjYW52YXMuYWRkRXZlbnRMaXN0ZW5lcihcImNsaWNrXCIsIChldmVudCkgPT4ge1xuICAgIGNvbnN0IHJlY3QgPSBjYW52YXMuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCk7XG4gICAgY29uc3QgeCA9IGV2ZW50LmNsaWVudFggLSByZWN0LmxlZnQ7XG4gICAgY29uc3QgeSA9IGV2ZW50LmNsaWVudFkgLSByZWN0LnRvcDtcblxuICAgIGNvbnN0IGNyID0geG1pbiArICh4IC8gd2lkdGgpICogKHhtYXggLSB4bWluKTtcbiAgICBjb25zdCBjaSA9IC15bWluIC0gKHkgLyBoZWlnaHQpICogKHltYXggLSB5bWluKTtcbiAgICBtdXRhYmxlIHhfY2VudHJlID0gY3I7XG4gICAgbXV0YWJsZSB5X2NlbnRyZSA9IGNpO1xuICAgIG11dGFibGUgY2VudHJlX3hfcGl4ZWwgPSB4O1xuICAgIG11dGFibGUgY2VudHJlX3lfcGl4ZWwgPSB5O1xuICB9KTtcblxuICAvLyBjb21wdXRlIG1hbmRlbGJyb3RcbiAgZm9yIChsZXQgeSA9IDA7IHkgPCBoZWlnaHQ7IHkrKykge1xuICAgIGNvbnN0IGNpID0geW1pbiArICh5IC8gaGVpZ2h0KSAqICh5bWF4IC0geW1pbik7XG5cbiAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHtcbiAgICAgIGNvbnN0IGNyID0geG1pbiArICh4IC8gd2lkdGgpICogKHhtYXggLSB4bWluKTtcblxuICAgICAgbGV0IHpyID0gMCwgemkgPSAwO1xuICAgICAgbGV0IGl0ZXIgPSAwO1xuXG4gICAgICB3aGlsZSAoenIqenIgKyB6aSp6aSA8PSA0ICYmIGl0ZXIgPCBtYXhJdGVyKSB7XG4gICAgICAgIGNvbnN0IHpyTmV3ID0genIqenIgLSB6aSp6aSArIGNyO1xuICAgICAgICB6aSA9IDIgKiB6ciAqIHppICsgY2k7XG4gICAgICAgIHpyID0genJOZXc7XG4gICAgICAgIGl0ZXIrKztcbiAgICAgIH1cblxuICAgICAgY29uc3QgaWR4ID0gKHkgKiB3aWR0aCArIHgpICogNDtcbiAgICAgIGNvbnN0IHYgPSBpdGVyID09PSBtYXhJdGVyID8gMCA6IDI1NTtcblxuICAgICAgaW1hZ2UuZGF0YVtpZHhdID0gdjtcbiAgICAgIGltYWdlLmRhdGFbaWR4ICsgMV0gPSB2O1xuICAgICAgaW1hZ2UuZGF0YVtpZHggKyAyXSA9IHY7XG4gICAgICBpbWFnZS5kYXRhW2lkeCArIDNdID0gMjU1O1xuICAgIH1cbiAgfVxuXG4gIC8vIGNvbnZlcnQgY29tcGxleCBudW1iZXIgZnJvbSB4X2NlbnRyZSwgYW5kIHlfY2VudHJlIHRvIHggYW5kIHkgY29vcmRpbmF0ZXNcbiAgY29uc3QgY2VudHJlX3BpeGVsX3kgPSBoZWlnaHQgLSBNYXRoLmZsb29yKCgoeV9jZW50cmUgLSB5bWluKSAvICh5bWF4IC0geW1pbikpICogaGVpZ2h0KTtcbiAgY29uc3QgY2VudHJlX3BpeGVsX3ggPSBNYXRoLmZsb29yKCgoeF9jZW50cmUgLSB4bWluKSAvICh4bWF4IC0geG1pbikpICogd2lkdGgpO1xuICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7XG4gICAgZm9yIChsZXQgeCA9IDA7IHggPCB3aWR0aDsgeCsrKSB7XG4gICAgICBjb25zdCBkeCA9IHggLSBjZW50cmVfcGl4ZWxfeDtcbiAgICAgIGNvbnN0IGR5ID0geSAtIGNlbnRyZV9waXhlbF95O1xuICAgICAgaWYgKE1hdGguc3FydChkeCpkeCArIGR5KmR5KSA8IDUpIHtcbiAgICAgICAgY29uc3QgaWR4ID0gKHkgKiB3aWR0aCArIHgpICogNDtcbiAgICAgICAgaW1hZ2UuZGF0YVtpZHhdID0gMjU1OyAgICAgIC8vIFJlZFxuICAgICAgICBpbWFnZS5kYXRhW2lkeCArIDFdID0gMDsgICAgLy8gR3JlZW5cbiAgICAgICAgaW1hZ2UuZGF0YVtpZHggKyAyXSA9IDA7ICAgIC8vIEJsdWVcbiAgICAgICAgaW1hZ2UuZGF0YVtpZHggKyAzXSA9IDI1NTsgIC8vIEFscGhhXG4gICAgICB9XG4gICAgfVxuICB9XG5cblxuICBcblxuICBjdHgucHV0SW1hZ2VEYXRhKGltYWdlLCAwLCAwKTtcbiAgcmV0dXJuIGNhbnZhcztcbn1cblxuLy8gQ2FsY3VsYXRlIHBlcmlvZCBhdCB0aGUgY2VudGVyIHBvaW50XG5mdW5jdGlvbiBpdGVyYXRlKHosIGMpIHtcbiAgcmV0dXJuIHtcbiAgICByZTogei5yZSp6LnJlIC0gei5pbSp6LmltICsgYy5yZSxcbiAgICBpbTogMip6LnJlKnouaW0gKyBjLmltXG4gIH07XG59XG5cbi8vIG1hZ25pdHVkZSBzcXVhcmVkXG5mdW5jdGlvbiBtYWcyKHopIHtcbiAgcmV0dXJuIHoucmUqei5yZSArIHouaW0qei5pbTtcbn1cblxuLy8gcm91bmQgdG8gMmRwXG5mdW5jdGlvbiByb3VuZDIoeikge1xuICByZXR1cm4ge1xuICAgIHJlOiBNYXRoLnJvdW5kKHoucmUgKiAxMDApIC8gMTAwLFxuICAgIGltOiBNYXRoLnJvdW5kKHouaW0gKiAxMDApIC8gMTAwXG4gIH07XG59XG5cbi8vIGZ1bmN0aW9uIHRvIGRldGVybWluZSB0aGUgb3JiaXQgYmVoYXZpb3VyXG5mdW5jdGlvbiBvcmJpdFBlcmlvZChjLCB3YXJtdXAgPSA1MDAsIHNhbXBsZUNvdW50ID0gMTUwLCBlc2NhcGVSYWRpdXMgPSA0KSB7XG4gIFxuICBsZXQgeiA9IHsgcmU6IDAsIGltOiAwIH07XG5cbiAgLy8gLS0tIFdhcm0tdXAgcGhhc2UgLS0tXG4gIGZvciAobGV0IGkgPSAwOyBpIDwgd2FybXVwOyBpKyspIHtcbiAgICB6ID0gaXRlcmF0ZSh6LCBjKTtcbiAgICBpZiAobWFnMih6KSA+IGVzY2FwZVJhZGl1cykge1xuICAgICAgcmV0dXJuIHsgc3RhdHVzOiBcImVzY2FwZXNcIiwgbWVzc2FnZTogXCJOb3QgaW4gTWFuZGVsYnJvdCBzZXRcIiB9O1xuICAgIH1cbiAgfVxuXG4gIC8vIC0tLSBTYW1wbGluZyBwaGFzZSAoYm91bmRlZCBvcmJpdCkgLS0tXG4gIGNvbnN0IHZhbHVlcyA9IFtdO1xuXG4gIGZvciAobGV0IGkgPSAwOyBpIDwgc2FtcGxlQ291bnQ7IGkrKykge1xuICAgIHogPSBpdGVyYXRlKHosIGMpO1xuICAgIGlmIChtYWcyKHopID4gZXNjYXBlUmFkaXVzKSB7XG4gICAgICByZXR1cm4geyBzdGF0dXM6IFwiZXNjYXBlc1wiLCBtZXNzYWdlOiBcIk5vdCBpbiBNYW5kZWxicm90IHNldFwiIH07XG4gICAgfVxuICAgIGNvbnN0IHIgPSByb3VuZDIoeik7XG4gICAgdmFsdWVzLnB1c2goYCR7ci5yZX0sJHtyLmltfWApOyAvLyBzdG9yZSBhcyBzdHJpbmcgc28gU2V0IHdvcmtzIG5pY2VseVxuICB9XG5cbiAgLy8gcmVtb3ZlIGR1cGxpY2F0ZXNcbiAgY29uc3QgdW5pcXVlID0gWy4uLm5ldyBTZXQodmFsdWVzKV07XG5cbiAgLy8gLS0tIERldGVybWluZSBiZWhhdmlvdXIgLS0tXG4gIGNvbnN0IHBlcmlvZCA9IHVuaXF1ZS5sZW5ndGg7XG5cbiAgaWYgKHBlcmlvZCA9PT0gMSkge1xuICAgIHJldHVybiB7IHN0YXR1czogXCJwZXJpb2RpY1wiLCBwZXJpb2Q6IDEsIG1lc3NhZ2U6IFwiRml4ZWQgcG9pbnQgKHBlcmlvZCAxKVwiIH07XG4gIH1cbiAgaWYgKHBlcmlvZCA9PT0gMikge1xuICAgIHJldHVybiB7IHN0YXR1czogXCJwZXJpb2RpY1wiLCBwZXJpb2Q6IDIsIG1lc3NhZ2U6IFwiUGVyaW9kLTIgY3ljbGVcIiB9O1xuICB9XG5cbiAgaWYgKHBlcmlvZCA8IDMyKSB7XG4gICAgcmV0dXJuIHsgc3RhdHVzOiBcInBlcmlvZGljXCIsIHBlcmlvZCwgbWVzc2FnZTogYFBlcmlvZC0ke3BlcmlvZH0gY3ljbGVgIH07XG4gIH1cblxuICAvLyBNYW55IHVuaXF1ZSB2YWx1ZXMg4oaSIGNoYW90aWMgLyBub24tcmVwZWF0aW5nXG4gIHJldHVybiB7IHN0YXR1czogXCJjaGFvc1wiLCBtZXNzYWdlOiBcIkNoYW90aWMgb3JiaXRcIiB9O1xufVxuXG5wZXJpb2QgPSBvcmJpdFBlcmlvZCh7IHJlOiB4X2NlbnRyZSwgaW06IHlfY2VudHJlIH0pO1xucGVyaW9kLnN0YXR1cyArIFwiIC0gXCIgKyBwZXJpb2QubWVzc2FnZSArIGAgKFBlcmlvZDogJHtwZXJpb2QucGVyaW9kIHx8ICdOL0EnfSlgO1xuXCJQb3NpdGlvbjogXCIgKyB4X2NlbnRyZSArIFwiICsgXCIgKyB5X2NlbnRyZSArIFwiaVwiO1xuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2Ygem9vbWVkID0ge1xuICBjb25zdCB4bWluID0gLTAuNzUsIHhtYXggPSAwLjE7XG4gIGNvbnN0IHltaW4gPSAtMSwgeW1heCA9IDA7XG4gIGNvbnN0IHBpeGVsUGVyVW5pdFdpZHRoID0gNjAwO1xuICBjb25zdCBwaXhlbFBlclVuaXRIZWlnaHQgPSA2MDA7XG4gIGNvbnN0IG1heEl0ZXIgPSA1MDtcblxuICBjb25zdCB3aWR0aCA9IE1hdGguZmxvb3IoKHhtYXggLSB4bWluKSAqIHBpeGVsUGVyVW5pdFdpZHRoKTtcbiAgY29uc3QgaGVpZ2h0ID0gTWF0aC5mbG9vcigoeW1heCAtIHltaW4pICogcGl4ZWxQZXJVbml0SGVpZ2h0KTtcblxuICBjb25zdCBjYW52YXMgPSBET00uY2FudmFzKHdpZHRoLCBoZWlnaHQpO1xuICBjb25zdCBjdHggPSBjYW52YXMuZ2V0Q29udGV4dChcIjJkXCIpO1xuICBjb25zdCBpbWFnZSA9IGN0eC5jcmVhdGVJbWFnZURhdGEod2lkdGgsIGhlaWdodCk7XG5cbiAgY2FudmFzLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCAoZXZlbnQpID0+IHtcbiAgICBjb25zdCByZWN0ID0gY2FudmFzLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpO1xuICAgIGNvbnN0IHggPSBldmVudC5jbGllbnRYIC0gcmVjdC5sZWZ0O1xuICAgIGNvbnN0IHkgPSBldmVudC5jbGllbnRZIC0gcmVjdC50b3A7XG5cbiAgICBjb25zdCBjciA9IHhtaW4gKyAoeCAvIHdpZHRoKSAqICh4bWF4IC0geG1pbik7XG4gICAgY29uc3QgY2kgPSAteW1pbiAtICh5IC8gaGVpZ2h0KSAqICh5bWF4IC0geW1pbik7XG4gICAgbXV0YWJsZSB4X2NlbnRyZSA9IGNyO1xuICAgIG11dGFibGUgeV9jZW50cmUgPSBjaTtcbiAgICBtdXRhYmxlIGNlbnRyZV94X3BpeGVsID0geDtcbiAgICBtdXRhYmxlIGNlbnRyZV95X3BpeGVsID0geTtcbiAgfSk7XG5cbiAgLy8gY29tcHV0ZSBtYW5kZWxicm90XG4gIGZvciAobGV0IHkgPSAwOyB5IDwgaGVpZ2h0OyB5KyspIHtcbiAgICBjb25zdCBjaSA9IHltaW4gKyAoeSAvIGhlaWdodCkgKiAoeW1heCAtIHltaW4pO1xuXG4gICAgZm9yIChsZXQgeCA9IDA7IHggPCB3aWR0aDsgeCsrKSB7XG4gICAgICBjb25zdCBjciA9IHhtaW4gKyAoeCAvIHdpZHRoKSAqICh4bWF4IC0geG1pbik7XG5cbiAgICAgIGxldCB6ciA9IDAsIHppID0gMDtcbiAgICAgIGxldCBpdGVyID0gMDtcblxuICAgICAgd2hpbGUgKHpyKnpyICsgemkqemkgPD0gNCAmJiBpdGVyIDwgbWF4SXRlcikge1xuICAgICAgICBjb25zdCB6ck5ldyA9IHpyKnpyIC0gemkqemkgKyBjcjtcbiAgICAgICAgemkgPSAyICogenIgKiB6aSArIGNpO1xuICAgICAgICB6ciA9IHpyTmV3O1xuICAgICAgICBpdGVyKys7XG4gICAgICB9XG5cbiAgICAgIGNvbnN0IGlkeCA9ICh5ICogd2lkdGggKyB4KSAqIDQ7XG4gICAgICBjb25zdCB2ID0gaXRlciA9PT0gbWF4SXRlciA/IDAgOiAyNTU7XG5cbiAgICAgIGltYWdlLmRhdGFbaWR4XSA9IHY7XG4gICAgICBpbWFnZS5kYXRhW2lkeCArIDFdID0gdjtcbiAgICAgIGltYWdlLmRhdGFbaWR4ICsgMl0gPSB2O1xuICAgICAgaW1hZ2UuZGF0YVtpZHggKyAzXSA9IDI1NTtcbiAgICB9XG4gIH1cblxuICBcbiAgZm9yIChsZXQgeSA9IDA7IHkgPCBoZWlnaHQ7IHkrKykge1xuICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7IHgrKykge1xuICAgICAgY29uc3QgZHggPSB4IC0gY2VudHJlX3hfcGl4ZWw7XG4gICAgICBjb25zdCBkeSA9IHkgLSBjZW50cmVfeV9waXhlbDtcbiAgICAgIGlmIChNYXRoLnNxcnQoZHgqZHggKyBkeSpkeSkgPCA1KSB7XG4gICAgICAgIGNvbnN0IGlkeCA9ICh5ICogd2lkdGggKyB4KSAqIDQ7XG4gICAgICAgIGltYWdlLmRhdGFbaWR4XSA9IDI1NTsgICAgICAvLyBSZWRcbiAgICAgICAgaW1hZ2UuZGF0YVtpZHggKyAxXSA9IDA7ICAgIC8vIEdyZWVuXG4gICAgICAgIGltYWdlLmRhdGFbaWR4ICsgMl0gPSAwOyAgICAvLyBCbHVlXG4gICAgICAgIGltYWdlLmRhdGFbaWR4ICsgM10gPSAyNTU7ICAvLyBBbHBoYVxuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gIGN0eC5wdXRJbWFnZURhdGEoaW1hZ2UsIDAsIDApO1xuICByZXR1cm4gY2FudmFzO1xuICBcbn1cbnBlcmlvZC5zdGF0dXMgKyBcIiAtIFwiICsgcGVyaW9kLm1lc3NhZ2UgKyBgIChQZXJpb2Q6ICR7cGVyaW9kLnBlcmlvZCB8fCAnTi9BJ30pYDtcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdtYW5kZWxicm90UGxvdCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd6b29tZWQnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../posts/explaining_the_mandelbrot_set";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
