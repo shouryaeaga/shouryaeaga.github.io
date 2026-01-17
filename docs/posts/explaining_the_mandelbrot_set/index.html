@@ -816,6 +816,12 @@ F(1) = 1 \\
 F(n) = F(n-1) + F(n-2) \text{ for } n \geq 2
 \end{aligned}
 \]</span></p>
+<p>The first few numbers in the sequence are:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, \ldots
+\end{aligned}
+\]</span></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -932,6 +938,23 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 </figure>
 </div>
 </div>
+<p>Clicking on the bulbs in <a href="#fig-mandelbrot-fibonnaci" class="quarto-xref">Figure&nbsp;6</a> that are attached to the main cardioid reveals points whose orbits have periods that correspond to numbers in the Fibonacci sequence. This is because if you take any two bulbs and sum their periods, you get the period of the largest bulb between them. For example, click on the bulb at the very top, which has a period of 3, and the largest bulb on the left of the cardioid which has a period of 2. The largest bulb between them has a period of 5, which is the sum of 3 and 2. This pattern continues throughout the bulbs attached to the main cardioid, reflecting the Fibonacci sequence.</p>
+<p>Use <a href="#fig-mandelbrot-orbit" class="quarto-xref">Figure&nbsp;4</a> if you cannot see which bulb corresponds to which period.</p>
+<p>The reasoning for why this occurs is a bit more complex and involves some visual thinking. It is true that for every rational fraction <span class="math inline">\(\frac{a}{b}, a, b \in \mathbb{Z}^+ \text{ and } a&lt;b\)</span>, there exists a bulb in the Mandelbrot set with period <span class="math inline">\(b\)</span>. It just so happens that the bulb periods corresponding to that fraction, are placed <span class="math inline">\(\frac{a}{b}\)</span> of the way along the boundary of the main cardioid <strong>if it were stretched into a circle</strong>. So this means that <span class="math inline">\(\frac{1}{2}\)</span> of the way around the main cardioid there exists a bulb with period 2, which is true, and <span class="math inline">\(\frac{1}{3}\)</span> <strong>and</strong> <span class="math inline">\(\frac{2}{3}\)</span> of the way around there exists a bulb with period 3, and so on.</p>
+<p>Following this sequence, to find the largest bulb between two bulbs of periods p and q, you look for the fraction with the lowest denominator between the two fractions representing those bulbs, which is also the mediant of the two fractions representing their positions along the cardioid. The mediant (denoted by <span class="math inline">\(\oplus\)</span>) of two fractions <span class="math inline">\(\frac{a}{b}\)</span> and <span class="math inline">\(\frac{c}{d}\)</span> is given by: <span class="math display">\[
+\begin{aligned}
+\frac{a}{b} \oplus \frac{c}{d} = \frac{a+c}{b+d}
+\end{aligned}
+\]</span></p>
+<p>Now let’s return to our bulbs with periods 2 and 3, which are located at <span class="math inline">\(\frac{1}{2}\)</span> and <span class="math inline">\(\frac{1}{3}\)</span> respectively. The mediant of these two fractions is: <span class="math display">\[
+\begin{aligned}
+\frac{1}{2} \oplus \frac{1}{3} = \frac{1+1}{2+3} = \frac{2}{5}
+\end{aligned}
+\]</span> This means that the bulb with period 5 is located <span class="math inline">\(\frac{2}{5}\)</span> of the way around the cardioid, which is indeed between the bulbs with periods 2 and 3. Continuing this process with bulbs of periods 3 and 5: <span class="math display">\[
+\begin{aligned}
+\frac{1}{3} \oplus \frac{2}{5} = \frac{1+2}{3+5} = \frac{3}{8}
+\end{aligned}
+\]</span> This gives us the bulb with period 8, which is located <span class="math inline">\(\frac{3}{8}\)</span> of the way around the cardioid, again between the bulbs with periods 3 and 5. Repeating this process infinitely, we find the denominators follow the fibonacci sequence, and thus the periods of the bulbs between them also follow the fibonacci sequence! In case you were wondering, there is also a bulb with period 5 located at <span class="math inline">\(\frac{1}{5} \text{ and } \frac{3}{5} \text{ and } \frac{4}{5}\)</span> around the cardioid if it were stretched in a circle, but they are not part of the sequence we are discussing.</p>
 
 
 
