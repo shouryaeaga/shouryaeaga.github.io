@@ -10,7 +10,7 @@
 <atom:link href="https://shouryaeaga.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about Mathematics and Computer Science.</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Sat, 22 Nov 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 17 Jan 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Explanation of the features of the Mandelbrot set</title>
   <dc:creator>Shourya Eaga</dc:creator>
@@ -2907,7 +2907,7 @@ Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https:/
 </ol>
 </section></div> ]]></description>
   <guid>https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
-  <pubDate>Sat, 22 Nov 2025 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
   <media:content url="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
