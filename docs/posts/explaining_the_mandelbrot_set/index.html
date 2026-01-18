@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2026-01-17">
 <meta name="description" content="An in-depth look at the fascinating features of the Mandelbrot set, the most famous fractal in mathematics.">
 
-<title>Explanation of the features of the Mandelbrot set – Blog</title>
+<title>Explanation of the features of the Mandelbrot set – ∫ (Maths Adventures) dx</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,27 +58,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -199,7 +179,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Blog</span>
+    <span class="navbar-title">∫ (Maths Adventures) dx</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -283,7 +263,7 @@ window.Quarto = {
   <li><a href="#the-fibonnaci-sequence-and-the-mandelbrot-set" id="toc-the-fibonnaci-sequence-and-the-mandelbrot-set" class="nav-link" data-scroll-target="#the-fibonnaci-sequence-and-the-mandelbrot-set"><span class="header-section-number">3</span> The fibonnaci sequence and the Mandelbrot set</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a>
   <ul class="collapse">
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">4.1</span> Further Reading</a></li>
+  <li><a href="#references-and-further-reading" id="toc-references-and-further-reading" class="nav-link" data-scroll-target="#references-and-further-reading"><span class="header-section-number">4.1</span> References and Further Reading</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -299,7 +279,7 @@ window.Quarto = {
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction to the Mandelbrot Set</h1>
 <p>Before thinking about what different parts of the <strong>Mandelbrot set</strong> may mean, what exactly <em>is</em> the Mandelbrot set? The most concise definition is that which Wikipedia gives:</p>
 <blockquote class="blockquote">
-<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <span class="math inline">\(c\)</span> for which the function <span class="math inline">\(f_c(z) = z^2+ c\)</span> does not diverge to infinity when iterated starting at <span class="math inline">\(z=0\)</span>” <span class="citation" data-cites="wikipedia_mandelbrot_set">(<a href="#ref-wikipedia_mandelbrot_set" role="doc-biblioref">Wikipedia contributors, n.d.</a>)</span></p>
+<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <span class="math inline">\(c\)</span> for which the function <span class="math inline">\(f_c(z) = z^2+ c\)</span> does not diverge to infinity when iterated starting at <span class="math inline">\(z=0\)</span>” <span class="citation" data-cites="wikipedia_mandelbrot_set">[@wikipedia_mandelbrot_set]</span></p>
 </blockquote>
 <p>But what does this exactly mean?</p>
 <p>This means that if you take a complex number <span class="math inline">\(c\)</span> of the form <span class="math inline">\(a+bi\)</span> and let <span class="math inline">\(z_0=0\)</span>, and define <span class="math inline">\(z_{n+1}=z_{n}^2+c\)</span> and repeatedly iterate through this iterative formula, you have two possible options - it “blows up” to infinity, or it remains stable. Here is an example (where <span class="math inline">\(c\)</span> is a real number) when <span class="math inline">\(c=-1\)</span></p>
@@ -992,8 +972,8 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <section id="conclusion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
 <p>I hope this article has helped you understand a small fraction of the fascinating features of the Mandelbrot set. Being infinitely detailed, there are countless more properties and patterns that can be explored and intrigue you. I have given some additional reading content below if you wish to explore further, especially on Julia sets which are closely related to the Mandelbrot set!</p>
-<section id="further-reading" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">4.1</span> Further Reading</h2>
+<section id="references-and-further-reading" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="references-and-further-reading"><span class="header-section-number">4.1</span> References and Further Reading</h2>
 <ul>
 <li><a href="https://www.youtube.com/playlist?list=PLt5AfwLFPxWL7NpD_DKO28XhS0Ugctkpu/" target="_blank">Mandelbrot Set Playlist - Numberphile</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set/" target="_blank">Mandelbrot Set - Wikipedia</a></li>
@@ -1003,16 +983,11 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 </ul>
 
 
-
 </section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-wikipedia_mandelbrot_set" class="csl-entry" role="listitem">
-Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Magnitude of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(\sqrt{a^2+b^2}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

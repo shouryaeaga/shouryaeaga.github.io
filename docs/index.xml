@@ -5,7 +5,7 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Blog</title>
+<title>∫ (Maths Adventures) dx</title>
 <link>https://www.shouryaeaga.com/</link>
 <atom:link href="https://www.shouryaeaga.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about Mathematics and Computer Science.</description>
@@ -25,7 +25,7 @@
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction to the Mandelbrot Set</h1>
 <p>Before thinking about what different parts of the <strong>Mandelbrot set</strong> may mean, what exactly <em>is</em> the Mandelbrot set? The most concise definition is that which Wikipedia gives:</p>
 <blockquote class="blockquote">
-<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <img src="https://latex.codecogs.com/png.latex?c"> for which the function <img src="https://latex.codecogs.com/png.latex?f_c(z)%20=%20z%5E2+%20c"> does not diverge to infinity when iterated starting at <img src="https://latex.codecogs.com/png.latex?z=0">” <span class="citation" data-cites="wikipedia_mandelbrot_set">(Wikipedia contributors, n.d.)</span></p>
+<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <img src="https://latex.codecogs.com/png.latex?c"> for which the function <img src="https://latex.codecogs.com/png.latex?f_c(z)%20=%20z%5E2+%20c"> does not diverge to infinity when iterated starting at <img src="https://latex.codecogs.com/png.latex?z=0">” <span class="citation" data-cites="wikipedia_mandelbrot_set">[@wikipedia_mandelbrot_set]</span></p>
 </blockquote>
 <p>But what does this exactly mean?</p>
 <p>This means that if you take a complex number <img src="https://latex.codecogs.com/png.latex?c"> of the form <img src="https://latex.codecogs.com/png.latex?a+bi"> and let <img src="https://latex.codecogs.com/png.latex?z_0=0">, and define <img src="https://latex.codecogs.com/png.latex?z_%7Bn+1%7D=z_%7Bn%7D%5E2+c"> and repeatedly iterate through this iterative formula, you have two possible options - it “blows up” to infinity, or it remains stable. Here is an example (where <img src="https://latex.codecogs.com/png.latex?c"> is a real number) when <img src="https://latex.codecogs.com/png.latex?c=-1"></p>
@@ -2893,8 +2893,8 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <section id="conclusion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
 <p>I hope this article has helped you understand a small fraction of the fascinating features of the Mandelbrot set. Being infinitely detailed, there are countless more properties and patterns that can be explored and intrigue you. I have given some additional reading content below if you wish to explore further, especially on Julia sets which are closely related to the Mandelbrot set!</p>
-<section id="further-reading" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">4.1</span> Further Reading</h2>
+<section id="references-and-further-reading" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="references-and-further-reading"><span class="header-section-number">4.1</span> References and Further Reading</h2>
 <ul>
 <li><a href="https://www.youtube.com/playlist?list=PLt5AfwLFPxWL7NpD_DKO28XhS0Ugctkpu/" target="_blank">Mandelbrot Set Playlist - Numberphile</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set/" target="_blank">Mandelbrot Set - Wikipedia</a></li>
@@ -2904,16 +2904,11 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 </ul>
 
 
-
 </section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-wikipedia_mandelbrot_set" class="csl-entry">
-Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" class="uri">https://en.wikipedia.org/wiki/Mandelbrot_set</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D">↩︎</p></li>

@@ -1,5 +1,4 @@
 ---
-title: "Shourya Eaga"
 listing:
   contents: posts
   feed: true
