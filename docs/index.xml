@@ -2893,6 +2893,16 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <section id="conclusion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
 <p>I hope this article has helped you understand a small fraction of the fascinating features of the Mandelbrot set. Being infinitely detailed, there are countless more properties and patterns that can be explored and intrigue you. I have given some additional reading content below if you wish to explore further, especially on Julia sets which are closely related to the Mandelbrot set!</p>
+<div id="fig-mandelbrot-zoom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mandelbrot-zoom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/Mandelbrot_sequence_new.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-zoom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: An animation zooming in on the features of the mandelbrot set<sup>3</sup>
+</figcaption>
+</figure>
+</div>
 <section id="references-and-further-reading" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="references-and-further-reading"><span class="header-section-number">4.1</span> References and Further Reading</h2>
 <ul>
@@ -2913,6 +2923,7 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <ol>
 <li id="fn1"><p>Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D">↩︎</p></li>
 <li id="fn2"><p>Image By No machine-readable author provided. Hoehue~commonswiki assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims)., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=396285↩︎</p></li>
+<li id="fn3"><p>By Simpsons contributor at English Wikipedia - Transferred from en.wikipedia to Commons by Franklin.vp using CommonsHelper., Public Domain, https://commons.wikimedia.org/w/index.php?curid=9277589↩︎</p></li>
 </ol>
 </section></div> ]]></description>
   <guid>https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
