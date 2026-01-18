@@ -4,8 +4,9 @@ project:
 
 website:
   description: "A blog about Mathematics and Computer Science."
-  site-url: https://shouryaeaga.com # you must change this appropriately for RSS feeds to work properly
+  site-url: https://www.shouryaeaga.com # you must change this appropriately for RSS feeds to work properly
   title: "Blog"
+  cookie-consent: true
   navbar:
     right:
       - about.qmd

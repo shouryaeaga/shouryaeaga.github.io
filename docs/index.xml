@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Blog</title>
-<link>https://shouryaeaga.com/</link>
-<atom:link href="https://shouryaeaga.com/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.shouryaeaga.com/</link>
+<atom:link href="https://www.shouryaeaga.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about Mathematics and Computer Science.</description>
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Sat, 17 Jan 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Explanation of the features of the Mandelbrot set</title>
   <dc:creator>Shourya Eaga</dc:creator>
-  <link>https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/</link>
+  <link>https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/</link>
   <description><![CDATA[ 
 
 
@@ -187,7 +187,7 @@ font-style: inherit;">'binary'</span>)</span></code></pre></div></div>
 <div id="fig-mandelbrot-basic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mandelbrot-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-basic-output-1.png" class="img-fluid figure-img">
+<img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-basic-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-basic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Mandelbrot set on the complex plane
@@ -382,7 +382,7 @@ font-style: inherit;">'red'</span>)</span>
 <div id="fig-bifurcation-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-bifurcation-diagram-output-1.png" class="img-fluid figure-img">
+<img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-bifurcation-diagram-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bifurcation-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Bifurcation diagram of the quadratic map
@@ -437,7 +437,7 @@ font-style: inherit;">'red'</span>)</span>
 <div id="fig-mandelbrot-bifurcation-overlay" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-bifurcation-overlay-output-1.png" class="img-fluid figure-img">
+<img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/index_files/figure-html/fig-mandelbrot-bifurcation-overlay-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-bifurcation-overlay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Mandelbrot set with bifurcation diagram overlay
@@ -2084,7 +2084,7 @@ Figure&nbsp;4: Explore the Mandelbrot set by clicking on the plot to see the orb
 <div id="fig-mandelbrot-periodicities" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mandelbrot-periodicities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/Mandelbrot_Set_–_Periodicities_coloured.png" class="img-fluid figure-img">
+<img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/Mandelbrot_Set_–_Periodicities_coloured.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-periodicities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: An image showcasing the periodicities of the mandelbrot set<sup>2</sup>
@@ -2098,7 +2098,7 @@ Figure&nbsp;5: An image showcasing the periodicities of the mandelbrot set<sup>2
 <h1 data-number="3"><span class="header-section-number">3</span> The fibonnaci sequence and the Mandelbrot set</h1>
 <p>It may not seem likely, but the fibonacci sequence actually has a deep connection to the Mandelbrot set. The Fibonacci sequence is defined as follows: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0AF(0)%20=%200%20%5C%5C%0AF(1)%20=%201%20%5C%5C%0AF(n)%20=%20F(n-1)%20+%20F(n-2)%20%5Ctext%7B%20for%20%7D%20n%20%5Cgeq%202%0A%5Cend%7Baligned%7D%0A"></p>
 <p>The first few numbers in the sequence are:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A0,%201,%201,%202,%203,%205,%208,%2013,%2021,%2034,%2055,%2089,%20144,%20233,%20377,%20610,%20987,%201597,%202584,%204181,%206765,%20%5Cldots%0A%5Cend%7Baligned%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A0,%201,%201,%202,%203,%205,%208,%2013,%2021%20%5Cldots%0A%5Cend%7Baligned%7D%0A"></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2114,13 +2114,13 @@ font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0.75</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">1.25</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> xmax <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0.1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb6-4">  <span class="kw" style="color: #003B4F;
@@ -2136,9 +2136,9 @@ font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> ymax <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">0.25</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb6-5">  <span class="kw" style="color: #003B4F;
@@ -2889,9 +2889,23 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <p>The reasoning for why this occurs is a bit more complex and involves some visual thinking. It is true that for every rational fraction <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Ba%7D%7Bb%7D,%20a,%20b%20%5Cin%20%5Cmathbb%7BZ%7D%5E+%20%5Ctext%7B%20and%20%7D%20a%3Cb">, there exists a bulb in the Mandelbrot set with period <img src="https://latex.codecogs.com/png.latex?b">. It just so happens that the bulb periods corresponding to that fraction, are placed <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Ba%7D%7Bb%7D"> of the way along the boundary of the main cardioid <strong>if it were stretched into a circle</strong>. So this means that <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B2%7D"> of the way around the main cardioid there exists a bulb with period 2, which is true, and <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B3%7D"> <strong>and</strong> <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B2%7D%7B3%7D"> of the way around there exists a bulb with period 3, and so on.</p>
 <p>Following this sequence, to find the largest bulb between two bulbs of periods p and q, you look for the fraction with the lowest denominator between the two fractions representing those bulbs, which is also the mediant of the two fractions representing their positions along the cardioid. The mediant (denoted by <img src="https://latex.codecogs.com/png.latex?%5Coplus">) of two fractions <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Ba%7D%7Bb%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bc%7D%7Bd%7D"> is given by: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7Ba%7D%7Bb%7D%20%5Coplus%20%5Cfrac%7Bc%7D%7Bd%7D%20=%20%5Cfrac%7Ba+c%7D%7Bb+d%7D%0A%5Cend%7Baligned%7D%0A"></p>
 <p>Now let’s return to our bulbs with periods 2 and 3, which are located at <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B2%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B3%7D"> respectively. The mediant of these two fractions is: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B1%7D%7B2%7D%20%5Coplus%20%5Cfrac%7B1%7D%7B3%7D%20=%20%5Cfrac%7B1+1%7D%7B2+3%7D%20=%20%5Cfrac%7B2%7D%7B5%7D%0A%5Cend%7Baligned%7D%0A"> This means that the bulb with period 5 is located <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B2%7D%7B5%7D"> of the way around the cardioid, which is indeed between the bulbs with periods 2 and 3. Continuing this process with bulbs of periods 3 and 5: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cfrac%7B1%7D%7B3%7D%20%5Coplus%20%5Cfrac%7B2%7D%7B5%7D%20=%20%5Cfrac%7B1+2%7D%7B3+5%7D%20=%20%5Cfrac%7B3%7D%7B8%7D%0A%5Cend%7Baligned%7D%0A"> This gives us the bulb with period 8, which is located <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B3%7D%7B8%7D"> of the way around the cardioid, again between the bulbs with periods 3 and 5. Repeating this process infinitely, we find the denominators follow the fibonacci sequence, and thus the periods of the bulbs between them also follow the fibonacci sequence! In case you were wondering, there is also a bulb with period 5 located at <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B5%7D%20%5Ctext%7B%20and%20%7D%20%5Cfrac%7B3%7D%7B5%7D%20%5Ctext%7B%20and%20%7D%20%5Cfrac%7B4%7D%7B5%7D"> around the cardioid if it were stretched in a circle, but they are not part of the sequence we are discussing.</p>
+</section>
+<section id="conclusion" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
+<p>I hope this article has helped you understand a small fraction of the fascinating features of the Mandelbrot set. Being infinitely detailed, there are countless more properties and patterns that can be explored and intrigue you. I have given some additional reading content below if you wish to explore further, especially on Julia sets which are closely related to the Mandelbrot set!</p>
+<section id="further-reading" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">4.1</span> Further Reading</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLt5AfwLFPxWL7NpD_DKO28XhS0Ugctkpu/" target="_blank">Mandelbrot Set Playlist - Numberphile</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set/" target="_blank">Mandelbrot Set - Wikipedia</a></li>
+<li><a href="https://e.math.cornell.edu/people/belk/dynamicalsystems/NotesJuliaMandelbrot.pdf" target="_blank">Julia Sets and the Mandelbrot Set - Cornell University</a></li>
+<li><a href="https://www.dynamicmath.xyz/mandelbrot-julia/" target="_blank">Mandelbrot and Julia Sets Interactive Visualisation - Dynamic Maths</a></li>
+<li><a href="https://mandel.gart.nz/" target="_blank">Mandelbrot Set Explorer - Gart.nz</a></li>
+</ul>
 
 
 
+</section>
 </section>
 
 
@@ -2906,9 +2920,9 @@ Wikipedia contributors. n.d. <span>“Mandelbrot Set.”</span> <a href="https:/
 <li id="fn2"><p>Image By No machine-readable author provided. Hoehue~commonswiki assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims)., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=396285↩︎</p></li>
 </ol>
 </section></div> ]]></description>
-  <guid>https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
+  <guid>https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
   <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://shouryaeaga.com/posts/explaining_the_mandelbrot_set/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
