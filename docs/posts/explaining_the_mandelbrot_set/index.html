@@ -326,7 +326,8 @@ z_{n+1} &amp;= z_n^2 + c \\
 \]</span> If at any point in its iterative sequence, <span class="math inline">\(|z_n| \gt 2\)</span>, then it will escape to infinity.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(|z_{n+1}|=|z_n^2+c|\)</span> then by the reverse triangle inequality, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+If <span class="math inline">\(|z_{n+1}|=|z_n^2+c|\)</span> then by the reverse triangle inequality, <span class="math display">\[
 |z+w| \ge \bigl| |z|-|w| \bigr| \\
 \]</span> it follows <span class="math display">\[
 |z_n^2+c| \ge \bigl| |z_n^2|-|c| \bigr| \\
@@ -335,14 +336,14 @@ z_{n+1} &amp;= z_n^2 + c \\
 \bigl| |z_n^2|-|c| \bigr| &amp;\ge \bigl| |z_n^2|-|z_n| \bigr| \\
 \bigl| |z_n^2|-|c| \bigr| &amp;\ge \bigl| |z_n|(|z_n|-1) \bigr| \\
 \end{aligned}
-\]</span> If <span class="math inline">\(|z_n| \gt 2\)</span> then <span class="math inline">\(|z_n|-1 \gt 1\)</span>. Let <span class="math inline">\(\alpha=1+\beta\)</span> so that we can substitute it into the equation. <span class="math display">\[
-\begin{aligned}
-z_{n+1} \ge \bigl| |z_n|\alpha \bigr| \text{where } \alpha \gt 1 \\
+\]</span> If <span class="math inline">\(|z_n| \gt 2\)</span> then <span class="math inline">\(|z_n|-1 \gt 1\)</span>. Let <span class="math inline">\(\alpha \gt 1\)</span> where <span class="math inline">\(\alpha\)</span> is any number in the range, which we can substitute into the equation. $$
+<span class="math display">\[\begin{aligned}
+|z_{n+1}| \ge \bigl| |z_n|\alpha \bigr| \\
 \text{hence, if } |z_n| &gt; 2 \text{ then } z_{n+1} &gt; z_n \\
-\text{By induction, it will escape to infinity}
-\qed
-\end{aligned}
-\]</span></p>
+\text{By induction, it will escape to infinity} \\
+\square
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
 </details>
 <p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see <a href="#fig-mandelbrot-basic" class="quarto-xref">Figure&nbsp;1</a></p>
@@ -459,7 +460,7 @@ c &amp;\le \frac{1}{4}
 \end{aligned}
 \]</span></p>
 <p>Next, consider the lower bound <span class="math inline">\(c \geq -2\)</span></p>
-<p>As the quadratic map and Mandelbrot set share the same iterative sequence, consider <span class="math inline">\(x_1=c\)</span>. <span class="math inline">\(|c| \gt 2\)</span> therefore <span class="math inline">\(|x_1| \gt 2\)</span> Using <a href="#thm-mandelbrot-bound" class="quarto-xref">Theorem&nbsp;1</a>, for any point <span class="math inline">\(|x_n|&gt;2\)</span>, it will diverge to infinity, therefore, <span class="math inline">\(c \ge -2\)</span></p>
+<p>As the quadratic map and Mandelbrot set share the same iterative sequence, consider <span class="math inline">\(x_1=c\)</span>. <span class="math inline">\(|c| \gt 2\)</span> therefore <span class="math inline">\(|x_1| \gt 2\)</span> Using <a href="#thm-mandelbrot-bound" class="quarto-xref">Theorem&nbsp;1</a>, for any point <span class="math inline">\(|x_n|&gt;2\)</span>, it will diverge to infinity, therefore, <span class="math inline">\(c \ge -2\)</span> <span class="math inline">\(\square\)</span></p>
 </div>
 </details>
 <p>Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in <a href="#fig-bifurcation-diagram" class="quarto-xref">Figure&nbsp;2</a>.</p>
