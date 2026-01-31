@@ -25,7 +25,7 @@
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction to the Mandelbrot Set</h1>
 <p>Before thinking about what different parts of the <strong>Mandelbrot set</strong> may mean, what exactly <em>is</em> the Mandelbrot set? The most concise definition is that which Wikipedia gives:</p>
 <blockquote class="blockquote">
-<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <img src="https://latex.codecogs.com/png.latex?c"> for which the function <img src="https://latex.codecogs.com/png.latex?f_c(z)%20=%20z%5E2+%20c"> does not diverge to infinity when iterated starting at <img src="https://latex.codecogs.com/png.latex?z=0">” <span class="citation" data-cites="wikipedia_mandelbrot_set">[@wikipedia_mandelbrot_set]</span></p>
+<p>“The Mandelbrot set is a two-dimensional set that is defined in the complex plane as the complex numbers <img src="https://latex.codecogs.com/png.latex?c"> for which the function <img src="https://latex.codecogs.com/png.latex?f_c(z)%20=%20z%5E2+%20c"> does not diverge to infinity when iterated starting at <img src="https://latex.codecogs.com/png.latex?z=0">”</p>
 </blockquote>
 <p>But what does this exactly mean?</p>
 <p>This means that if you take a complex number <img src="https://latex.codecogs.com/png.latex?c"> of the form <img src="https://latex.codecogs.com/png.latex?a+bi"> and let <img src="https://latex.codecogs.com/png.latex?z_0=0">, and define <img src="https://latex.codecogs.com/png.latex?z_%7Bn+1%7D=z_%7Bn%7D%5E2+c"> and repeatedly iterate through this iterative formula, you have two possible options - it “blows up” to infinity, or it remains stable. Here is an example (where <img src="https://latex.codecogs.com/png.latex?c"> is a real number) when <img src="https://latex.codecogs.com/png.latex?c=-1"></p>
@@ -36,7 +36,20 @@
 <p>Therefore, we see that using <img src="https://latex.codecogs.com/png.latex?c=1"> quickly produces larger numbers till infinity, and can conclude that <img src="https://latex.codecogs.com/png.latex?c=1"> <strong>is outside the Mandelbrot set</strong></p>
 <p>Let’s take a look at a 3rd example where <img src="https://latex.codecogs.com/png.latex?c"> is a complex number such as <img src="https://latex.codecogs.com/png.latex?c=1+i"></p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_1%20&amp;=%200%5E2+1+i%20&amp;&amp;=1+i%20%5C%5C%0Az_2%20&amp;=(1+i)%5E2%20+1+i%20&amp;&amp;=1+3i%20%5C%5C%0Az_3%20&amp;=%20(1+3i)%5E2%20+%201+i&amp;&amp;=-7+7i%20%5C%5C%0Az_4%20&amp;=%20(-7+7i)%5E2%20+%201+i%20&amp;&amp;=%201-97i%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
-<p>Looking at the magnitudes<sup>1</sup> of the complex numbers, we see that they diverge to infinity again, concluding that <img src="https://latex.codecogs.com/png.latex?c=1+i"> <strong>is again outside the Mandelbrot set.</strong></p>
+<p>Looking at the magnitudes of the complex numbers, we see that they diverge to infinity again, concluding that <img src="https://latex.codecogs.com/png.latex?c=1+i"> <strong>is again outside the Mandelbrot set.</strong></p>
+<p>We can prove that for any value of <img src="https://latex.codecogs.com/png.latex?c">, if at any point in its iterative sequence, <img src="https://latex.codecogs.com/png.latex?%7Cz_n%7C%20%5Cgt%202">, then it will escape to infinity, and thus, the mandelbrot set is bounded by <img src="https://latex.codecogs.com/png.latex?%7Cc%7C%20%5Clt%202">. Look at the dropdown below for the proof.</p>
+<details>
+<summary>
+Proof
+</summary>
+<div id="thm-mandelbrot-bound" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Mandelbrot set escape radius)</strong></span> Let <img src="https://latex.codecogs.com/png.latex?c%20%5Cin%20%5Cmathbb%7BC%7D">, and define the sequence <img src="https://latex.codecogs.com/png.latex?z_n"> by</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_0%20&amp;=%200%20%5C%5C%0Az_%7Bn+1%7D%20&amp;=%20z_n%5E2%20+%20c%20%5C%5C%0A%5Cend%7Baligned%7D%0A"> If at any point in its iterative sequence, <img src="https://latex.codecogs.com/png.latex?%7Cz_n%7C%20%5Cgt%202">, then it will escape to infinity.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <img src="https://latex.codecogs.com/png.latex?%7Cz_%7Bn+1%7D%7C=%7Cz_n%5E2+c%7C"> then by the reverse triangle inequality, <img src="https://latex.codecogs.com/png.latex?%0A%7Cz+w%7C%20%5Cge%20%5Cbigl%7C%20%7Cz%7C-%7Cw%7C%20%5Cbigr%7C%20%5C%5C%0A"> it follows <img src="https://latex.codecogs.com/png.latex?%0A%7Cz_n%5E2+c%7C%20%5Cge%20%5Cbigl%7C%20%7Cz_n%5E2%7C-%7Cc%7C%20%5Cbigr%7C%20%5C%5C%0A"> if <img src="https://latex.codecogs.com/png.latex?%7Cz_n%7C%20%5Cge%20%7Cc%7C"> we can deduce <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Cbigl%7C%20%7Cz_n%5E2%7C-%7Cc%7C%20%5Cbigr%7C%20&amp;%5Cge%20%5Cbigl%7C%20%7Cz_n%5E2%7C-%7Cz_n%7C%20%5Cbigr%7C%20%5C%5C%0A%5Cbigl%7C%20%7Cz_n%5E2%7C-%7Cc%7C%20%5Cbigr%7C%20&amp;%5Cge%20%5Cbigl%7C%20%7Cz_n%7C(%7Cz_n%7C-1)%20%5Cbigr%7C%20%5C%5C%0A%5Cend%7Baligned%7D%0A"> If <img src="https://latex.codecogs.com/png.latex?%7Cz_n%7C%20%5Cgt%202"> then <img src="https://latex.codecogs.com/png.latex?%7Cz_n%7C-1%20%5Cgt%201">. Let <img src="https://latex.codecogs.com/png.latex?%5Calpha=1+%5Cbeta"> so that we can substitute it into the equation. <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Az_%7Bn+1%7D%20%5Cge%20%5Cbigl%7C%20%7Cz_n%7C%5Calpha%20%5Cbigr%7C%20%5Ctext%7Bwhere%20%7D%20%5Calpha%20%5Cgt%201%20%5C%5C%0A%5Ctext%7Bhence,%20if%20%7D%20%7Cz_n%7C%20%3E%202%20%5Ctext%7B%20then%20%7D%20z_%7Bn+1%7D%20%3E%20z_n%20%5C%5C%0A%5Ctext%7BBy%20induction,%20it%20will%20escape%20to%20infinity%7D%0A%5Cqed%0A%5Cend%7Baligned%7D%0A"></p>
+</div>
+</details>
 <p>For what this would look like on the complex plane, where points in the Mandelbrot set are in black, and points outside the Mandelbrot set are in white, see Figure&nbsp;1</p>
 <div id="cell-fig-mandelbrot-basic" class="cell" data-execution_count="5">
 <details class="code-fold">
@@ -202,19 +215,36 @@ Figure&nbsp;1: Mandelbrot set on the complex plane
 <h1 data-number="2"><span class="header-section-number">2</span> The Bulbs</h1>
 <section id="the-bifurcation-of-the-quadratic-map" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-bifurcation-of-the-quadratic-map"><span class="header-section-number">2.1</span> The Bifurcation of the Quadratic Map</h2>
-<p>The Bifurcation diagram of the Quadratic Map and the Mandelbrot set are linked and correspond to each other and the Quadratic Map is defined as: <img src="https://latex.codecogs.com/png.latex?x_%7Bn+1%7D=x_n%5E2+c"></p>
-<p><strong>But what is a bifurcation diagram of the Quadratic Map?</strong></p>
+<p><strong>What is a bifurcation diagram of the Quadratic Map?</strong></p>
 <p>It shows how the long term behaviour of a system changes as a parameter is adjusted in the quadratic map.</p>
-<p>Let’s take a value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.2"> and look at its long term behaviour.</p>
+<p>The Bifurcation diagram of the Quadratic Map and the Mandelbrot set are linked and correspond to each other and the Quadratic Map is defined as: <img src="https://latex.codecogs.com/png.latex?x_%7Bn+1%7D=x_n%5E2+c"></p>
+<p>Let’s take an example value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.2"> and look at its long term behaviour.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2+0.2%20&amp;&amp;=0.2%20%5C%5C%0Ax_2&amp;=0.2%5E2+0.2%20&amp;&amp;=0.24%20%5C%5C%0Ax_3&amp;=0.24%5E2+0.2%20&amp;&amp;=0.2576%20%5C%5C%0Ax_4&amp;=0.2576%5E2+0.2%20&amp;&amp;=0.2664%20%5C%5C%0Ax_5&amp;=0.2664%5E2+0.2%20&amp;&amp;=0.2710%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
-<p>Here, we see the values converging to a single point at approximately 0.2764 which is called a fixed point. Taking a different value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.5"> we see a different behaviour: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2+0.5%20&amp;&amp;=0.5%20%5C%5C%0Ax_2&amp;=0.5%5E2+0.5%20&amp;&amp;=0.75%20%5C%5C%0Ax_3&amp;=0.75%5E2+0.5%20&amp;&amp;=1.0625%20%5C%5C%0Ax_4&amp;=1.0625%5E2+0.5%20&amp;&amp;=1.6289%20%5C%5C%0Ax_5&amp;=1.6289%5E2+0.5%20&amp;&amp;=3.1555%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Here, we see the values converging to a single fixed point at approximately 0.2764 which is called a fixed point. Taking a different value for <img src="https://latex.codecogs.com/png.latex?c"> like <img src="https://latex.codecogs.com/png.latex?c=0.5"> we see a different behaviour: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2+0.5%20&amp;&amp;=0.5%20%5C%5C%0Ax_2&amp;=0.5%5E2+0.5%20&amp;&amp;=0.75%20%5C%5C%0Ax_3&amp;=0.75%5E2+0.5%20&amp;&amp;=1.0625%20%5C%5C%0Ax_4&amp;=1.0625%5E2+0.5%20&amp;&amp;=1.6289%20%5C%5C%0Ax_5&amp;=1.6289%5E2+0.5%20&amp;&amp;=3.1555%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
 <p>Here, we see the values diverging to infinity, indicating that for <img src="https://latex.codecogs.com/png.latex?c=0.5">, the system does not settle into a fixed point.</p>
 <p>We can also do this for negative numbers like <img src="https://latex.codecogs.com/png.latex?c=-1">: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0&amp;=0%20%5C%5C%0Ax_1&amp;=0%5E2-1%20&amp;&amp;=-1%20%5C%5C%0Ax_2&amp;=-1%5E2-1%20&amp;&amp;=0%20%5C%5C%0Ax_3&amp;=0%5E2-1%20&amp;&amp;=-1%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
 <p>We can clearly see that the values cycle between -1 and 0, showcasing the behaviour of a period-2 cycle.</p>
 </section>
 <section id="bifurcation-diagram" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="bifurcation-diagram"><span class="header-section-number">2.2</span> Bifurcation Diagram</h2>
-<p>The values of <img src="https://latex.codecogs.com/png.latex?c"> that do not escape to infinity are exactly between -2 and 0.25. Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in Figure&nbsp;2.</p>
+The values of <img src="https://latex.codecogs.com/png.latex?c"> that do not escape to infinity are exactly between -2 and 0.25. For the proof of this, please look at the dropdown underneath.
+<details>
+<summary>
+Proof
+</summary>
+<div id="thm-real-quadratic-map-bound" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Bounds of Real Quadratic Map)</strong></span> Let <img src="https://latex.codecogs.com/png.latex?c%20%5Cin%20%5Cmathbb%7BR%7D">, and define the sequence <img src="https://latex.codecogs.com/png.latex?x_n"> by</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_0%20&amp;=%200%20%5C%5C%0Ax_%7Bn+1%7D%20&amp;=%20x_n%5E2%20+%20c%20%5C%5C%0A%5Cend%7Baligned%7D%0A"></p>
+<p>If the sequence does not escape to infinity, then <img src="https://latex.codecogs.com/png.latex?-2%20%5Cleq%20c%20%5Cleq%20%5Cfrac%7B1%7D%7B4%7D"></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>First, consider the upper bound <img src="https://latex.codecogs.com/png.latex?c%20%5Cleq%20%5Cfrac%7B1%7D%7B4%7D"></p>
+<p>We can consider the fixed point of the series to be the point <img src="https://latex.codecogs.com/png.latex?x_%7Bn+1%7D=x_n">, if there is a fixed point for a specific value of <img src="https://latex.codecogs.com/png.latex?c">. <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0Ax_%7Bn+1%7D%20&amp;=%20x_n%20=%20x%0A%20%20&amp;&amp;%5CRightarrow%5Cquad%20x%20=%20x%5E2%20+%20c%20%5C%5C%5B0.5em%5D%0Ax%5E2%20-%20x%20+%20c%20&amp;=%200%20%5C%5C%5B0.5em%5D%0A%5Ctext%7BFor%20real%20solutions,%20the%20discriminant%20satisfies%7D%20%5C%5C%0Ab%5E2%20-%204ac%20&amp;%5Cge%200%20%5C%5C%5B0.5em%5D%0A(-1)%5E2%20-%204(1)(c)%20&amp;%5Cge%200%20%5C%5C%0A1%20-%204c%20&amp;%5Cge%200%20%5C%5C%0A1%20&amp;%5Cge%204c%20%5C%5C%0A%5Cfrac%7B1%7D%7B4%7D%20&amp;%5Cge%20c%20%5C%5C%5B0.5em%5D%0Ac%20&amp;%5Cle%20%5Cfrac%7B1%7D%7B4%7D%0A%5Cend%7Baligned%7D%0A"></p>
+<p>Next, consider the lower bound <img src="https://latex.codecogs.com/png.latex?c%20%5Cgeq%20-2"></p>
+<p>As the quadratic map and Mandelbrot set share the same iterative sequence, consider <img src="https://latex.codecogs.com/png.latex?x_1=c">. <img src="https://latex.codecogs.com/png.latex?%7Cc%7C%20%5Cgt%202"> therefore <img src="https://latex.codecogs.com/png.latex?%7Cx_1%7C%20%5Cgt%202"> Using Theorem&nbsp;1, for any point <img src="https://latex.codecogs.com/png.latex?%7Cx_n%7C%3E2">, it will diverge to infinity, therefore, <img src="https://latex.codecogs.com/png.latex?c%20%5Cge%20-2"></p>
+</div>
+</details>
+<p>Plotting the long term behaviour of the quadratic map gives us the bifurcation diagram, which is shown in Figure&nbsp;2.</p>
 <div id="cell-fig-bifurcation-diagram" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2087,7 +2117,7 @@ Figure&nbsp;4: Explore the Mandelbrot set by clicking on the plot to see the orb
 <img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/Mandelbrot_Set_–_Periodicities_coloured.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-periodicities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: An image showcasing the periodicities of the mandelbrot set<sup>2</sup>
+Figure&nbsp;5: An image showcasing the periodicities of the mandelbrot set<sup>1</sup>
 </figcaption>
 </figure>
 </div>
@@ -2899,7 +2929,7 @@ Figure&nbsp;6: Mandelbrot set zoomed in on the components related to the fibonna
 <img src="https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/Mandelbrot_sequence_new.gif" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mandelbrot-zoom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: An animation zooming in on the features of the mandelbrot set<sup>3</sup>
+Figure&nbsp;7: An animation zooming in on the features of the mandelbrot set<sup>2</sup>
 </figcaption>
 </figure>
 </div>
@@ -2921,9 +2951,8 @@ Figure&nbsp;7: An animation zooming in on the features of the mandelbrot set<sup
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Magnitude of a complex number <img src="https://latex.codecogs.com/png.latex?z=a+bi"> is defined as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Ba%5E2+b%5E2%7D">↩︎</p></li>
-<li id="fn2"><p>Image By No machine-readable author provided. Hoehue~commonswiki assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims)., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=396285↩︎</p></li>
-<li id="fn3"><p>By Simpsons contributor at English Wikipedia - Transferred from en.wikipedia to Commons by Franklin.vp using CommonsHelper., Public Domain, https://commons.wikimedia.org/w/index.php?curid=9277589↩︎</p></li>
+<li id="fn1"><p>Image By No machine-readable author provided. Hoehue~commonswiki assumed (based on copyright claims). - No machine-readable source provided. Own work assumed (based on copyright claims)., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=396285↩︎</p></li>
+<li id="fn2"><p>By Simpsons contributor at English Wikipedia - Transferred from en.wikipedia to Commons by Franklin.vp using CommonsHelper., Public Domain, https://commons.wikimedia.org/w/index.php?curid=9277589↩︎</p></li>
 </ol>
 </section></div> ]]></description>
   <guid>https://www.shouryaeaga.com/posts/explaining_the_mandelbrot_set/</guid>
